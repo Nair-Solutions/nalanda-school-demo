@@ -1,5 +1,8 @@
 import { z } from "zod";
 
+// Zod would otherwise probe `new Function()` for JIT support, which our CSP (no unsafe-eval) blocks.
+z.config({ jitless: true });
+
 /** Error codes map to dictionary.form.errors so messages are translated on the client. */
 export type FieldErrorCode = "required" | "tooLong" | "tooShort" | "phone" | "email" | "consent";
 

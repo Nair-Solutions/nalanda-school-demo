@@ -79,7 +79,7 @@ export function SiteHeader({ locale, header, nav, motto }: Props) {
       <Link
         href={pagePath(locale, slug)}
         aria-current={isCurrent(slug) ? "page" : undefined}
-        className={`flex h-12 items-center px-3 text-[15px] font-medium transition-colors hover:bg-white/10 hover:text-white ${
+        className={`flex h-12 items-center px-3 text-[15px] font-semibold transition-colors hover:bg-white/10 hover:text-white ${
           isCurrent(slug) ? "text-gold-400" : "text-white/90"
         }`}
       >
@@ -93,7 +93,7 @@ export function SiteHeader({ locale, header, nav, motto }: Props) {
       <Link
         href={pagePath(locale, slug)}
         aria-current={isCurrent(slug) ? "page" : undefined}
-        className={`flex min-h-11 items-center rounded-lg px-3 ${nested ? "text-[15px]" : "text-base font-medium"} ${
+        className={`flex min-h-11 items-center rounded-lg px-3 ${nested ? "text-[15px]" : "text-base font-semibold"} ${
           isCurrent(slug)
             ? "bg-navy-50 text-crimson-800 font-semibold"
             : "text-ink hover:bg-navy-50"
@@ -157,7 +157,7 @@ export function SiteHeader({ locale, header, nav, motto }: Props) {
                   className="text-navy-800 block text-[11px] font-semibold tracking-wide"
                   lang="en"
                 >
-                  ENGLISH MEDIUM HR. SEC. SCHOOL
+                  ENG. MED. HR. SEC. SCHOOL
                 </span>
               </span>
             </span>
@@ -169,12 +169,11 @@ export function SiteHeader({ locale, header, nav, motto }: Props) {
               label={header.switchLanguage}
               ariaLabel={header.switchLanguageAria}
             />
-            <Link
-              href={pagePath(locale, "admission")}
-              className={buttonClasses("primary", "hidden lg:inline-flex")}
-            >
-              {header.enquire}
-            </Link>
+            <span className="hidden lg:block">
+              <Link href={pagePath(locale, "admission")} className={buttonClasses("primary")}>
+                {header.enquire}
+              </Link>
+            </span>
             <button
               ref={menuButtonRef}
               type="button"
@@ -203,7 +202,7 @@ export function SiteHeader({ locale, header, nav, motto }: Props) {
                 <Link
                   href={pagePath(locale, "rules-and-regulations")}
                   aria-current={isCurrent("rules-and-regulations") ? "page" : undefined}
-                  className={`flex min-h-11 items-center rounded-lg px-3 text-base font-medium ${
+                  className={`flex min-h-11 items-center rounded-lg px-3 text-base font-semibold ${
                     isCurrent("rules-and-regulations")
                       ? "bg-navy-50 text-crimson-800 font-semibold"
                       : "text-ink hover:bg-navy-50"

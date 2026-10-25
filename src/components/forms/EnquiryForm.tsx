@@ -159,7 +159,7 @@ export function EnquiryForm({
     errorText(field) ? (
       <p
         id={id(`${field}-error`)}
-        className="text-crimson-800 mt-1.5 flex items-center gap-1 text-sm font-medium"
+        className="text-crimson-800 mt-1.5 flex items-center gap-1 text-sm font-semibold"
       >
         <AlertCircle aria-hidden="true" size={15} />
         {errorText(field)}

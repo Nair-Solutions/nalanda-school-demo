@@ -91,3 +91,9 @@
     margin-top: 1rem;
   }
 }
+
+/* Letter-spacing breaks Devanagari conjuncts and matras, so drop it on Hindi
+   pages (English fragments marked lang="en" keep their tracking). */
+html[lang^="hi"] :is([class*="tracking-"], .eyebrow):not([lang="en"], [lang="en"] *) {
+  letter-spacing: normal;
+}

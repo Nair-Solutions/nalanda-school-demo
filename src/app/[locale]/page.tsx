@@ -77,7 +77,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
               aria-hidden="true"
               className="absolute inset-0 -m-12 rounded-full border border-white/10"
             />
-            <div className="relative aspect-square rounded-full bg-white p-8 shadow-2xl ring-8 ring-white/10">
+            <div className="relative aspect-square overflow-hidden rounded-full bg-white p-10 shadow-2xl ring-8 ring-white/10">
               <Image
                 src="/branding/nalanda-emblem.png"
                 alt=""

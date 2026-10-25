@@ -20,14 +20,14 @@ interface Props {
 
 /**
  * Disclosure-style dropdown (button + list of links), the recommended pattern
- * for site navigation. Opens on click/Enter/Space/ArrowDown and on hover for
- * mouse users; closes on Escape, outside click, or when focus leaves.
+ * for site navigation. Opens on click/Enter/Space/ArrowDown; closes on Escape,
+ * outside click, or when focus leaves. No hover-open, so mouse, touch and
+ * keyboard all behave the same way.
  */
 export function RulesDropdown({ label, overviewHref, overviewLabel, items, active }: Props) {
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
-  const hoverTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const menuId = useId();
 
   const links = () =>
@@ -46,13 +46,6 @@ export function RulesDropdown({ label, overviewHref, overviewLabel, items, activ
     document.addEventListener("pointerdown", onPointer);
     return () => document.removeEventListener("pointerdown", onPointer);
   }, [open, close]);
-
-  useEffect(
-    () => () => {
-      if (hoverTimer.current) clearTimeout(hoverTimer.current);
-    },
-    [],
-  );
 
   const onButtonKeyDown = (event: KeyboardEvent<HTMLButtonElement>) => {
     if (event.key === "ArrowDown") {
@@ -83,18 +76,11 @@ export function RulesDropdown({ label, overviewHref, overviewLabel, items, activ
     }
   };
 
-  const hoverOpen = (value: boolean) => {
-    if (hoverTimer.current) clearTimeout(hoverTimer.current);
-    hoverTimer.current = setTimeout(() => setOpen(value), value ? 60 : 180);
-  };
-
   return (
     <div
       ref={rootRef}
       className="relative"
       onKeyDown={onMenuKeyDown}
-      onPointerEnter={(e) => e.pointerType === "mouse" && hoverOpen(true)}
-      onPointerLeave={(e) => e.pointerType === "mouse" && hoverOpen(false)}
       onBlur={(event) => {
         if (!rootRef.current?.contains(event.relatedTarget as Node)) setOpen(false);
       }}
@@ -106,7 +92,7 @@ export function RulesDropdown({ label, overviewHref, overviewLabel, items, activ
         aria-controls={menuId}
         onClick={() => setOpen((v) => !v)}
         onKeyDown={onButtonKeyDown}
-        className={`flex h-12 items-center gap-1 px-3 text-[15px] font-medium transition-colors hover:bg-white/10 hover:text-white ${
+        className={`flex h-12 items-center gap-1 px-3 text-[15px] font-semibold transition-colors hover:bg-white/10 hover:text-white ${
           active ? "text-gold-400" : "text-white/90"
         }`}
       >
