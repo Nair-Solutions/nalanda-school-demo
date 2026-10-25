@@ -109,6 +109,24 @@ describe("POST /api/enquiry", () => {
     expect(await res.json()).toMatchObject({ status: "failed" });
   });
 
+  it("treats a webhook 2xx without {ok:true} as a failure", async () => {
+    vi.stubEnv("ENQUIRY_WEBHOOK_URL", "https://hooks.example.test/x");
+    vi.stubEnv("ENQUIRY_WEBHOOK_SECRET", "s3cret");
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce(new Response("<html>Error</html>", { status: 200 }))
+      .mockResolvedValueOnce(Response.json({ ok: false, message: "forbidden" }))
+      .mockResolvedValueOnce(Response.json({ ok: true }));
+    vi.stubGlobal("fetch", fetchMock);
+    const send = () => POST(request({ ...body, startedAt: Date.now() - 10_000 }));
+    expect((await send()).status).toBe(502);
+    expect((await send()).status).toBe(502);
+    expect((await send()).status).toBe(200);
+    const sent = JSON.parse(fetchMock.mock.calls[2]![1].body);
+    expect(sent).toMatchObject({ secret: "s3cret", phone: "9876543210", locale: "hi" });
+    expect(fetchMock.mock.calls[2]![1].headers["X-Enquiry-Secret"]).toBe("s3cret");
+  });
+
   it("rate-limits repeated submissions from one IP", async () => {
     let last = 0;
     for (let i = 0; i < 6; i++)

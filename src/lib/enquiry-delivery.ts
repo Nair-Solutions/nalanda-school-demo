@@ -80,7 +80,10 @@ export async function deliverEnquiry(data: EnquiryInput, locale: string): Promis
       }),
       signal: AbortSignal.timeout(10_000),
     });
-    return response.ok ? "sent" : "failed";
+    if (!response.ok) return "failed";
+    // Require an explicit {"ok": true}: some hosts (e.g. Apps Script) return 2xx error pages.
+    const body = (await response.json().catch(() => null)) as { ok?: unknown } | null;
+    return body?.ok === true ? "sent" : "failed";
   }
 
   return "notConfigured";
