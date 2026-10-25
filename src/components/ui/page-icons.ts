@@ -1,0 +1,37 @@
+import {
+  BookOpen,
+  CalendarDays,
+  FileText,
+  GraduationCap,
+  Images,
+  Info,
+  Mail,
+  ScrollText,
+  ShieldCheck,
+  Trophy,
+  Users,
+  Building2,
+  ClipboardList,
+  Home,
+  Lock,
+  type LucideIcon,
+} from "lucide-react";
+import type { PageSlug } from "@/content/routes";
+
+export const pageIcons: Record<PageSlug, LucideIcon> = {
+  "": Home,
+  about: Info,
+  academics: GraduationCap,
+  admission: ClipboardList,
+  facilities: Building2,
+  achievements: Trophy,
+  gallery: Images,
+  "rules-and-regulations": ShieldCheck,
+  guidelines: ScrollText,
+  "academic-calendar": CalendarDays,
+  "book-list": BookOpen,
+  teachers: Users,
+  "public-disclosure": FileText,
+  contact: Mail,
+  privacy: Lock,
+};

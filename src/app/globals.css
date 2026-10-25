@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand colours sampled from the official logo */
+  --color-navy-950: #00183a;
+  --color-navy-900: #002050;
+  --color-navy-800: #002d67;
+  --color-navy-700: #163f7c;
+  --color-navy-100: #e6ecf5;
+  --color-navy-50: #f2f5fa;
+  --color-crimson-800: #82040e;
+  --color-crimson-700: #9b1420;
+  --color-crimson-50: #fbefef;
+  --color-gold-500: #c8973a;
+  --color-gold-400: #dcb35f;
+  --color-gold-100: #f6ecd6;
+  --color-paper: #fbf9f4;
+  --color-ink: #14213d;
+  --color-muted: #4f5b70;
+  --color-line: #e4e1d8;
+
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display-latin), var(--font-display-deva), Georgia, serif;
+
+  --shadow-card: 0 1px 2px rgb(0 24 58 / 0.06), 0 8px 24px -12px rgb(0 24 58 / 0.18);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 6rem;
+  }
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
+  }
+  /* Devanagari needs a little more line height for matras */
+  :lang(hi) body,
+  html[lang^="hi"] body {
+    line-height: 1.7;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-gold-500);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .container-page {
+    margin-inline: auto;
+    width: 100%;
+    max-width: 80rem;
+    padding-inline: 1rem;
+  }
+  @media (min-width: 640px) {
+    .container-page {
+      padding-inline: 1.5rem;
+    }
+  }
+  .eyebrow {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-crimson-800);
+  }
+  :lang(hi) .eyebrow {
+    letter-spacing: 0.02em;
+    font-size: 0.875rem;
+  }
+  .prose-school p + p {
+    margin-top: 1rem;
+  }
+}
