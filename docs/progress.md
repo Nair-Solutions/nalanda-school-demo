@@ -1,12 +1,12 @@
 # Progress checklist
 
-Last updated 2026-10-25.
+Last updated 2026-10-26.
 
 ## Stage A: Discover
 
 - [x] Local references found and preserved (`reference/`): logo, poster, standalone demo HTML + README
 - [ ] `Nalanda_Kurud_Demo_Full_Project.zip`: **not supplied** (the standalone HTML and README were)
-- [ ] Original site audit: **blocked** (network policy), see `original-website-audit.md`
+- [ ] Original site audit: **blocked** (network policy), see `original-website-audit.md`. The allow-list has now been updated; run the audit in a new session
 - [ ] Google Maps photos: **blocked**; linked externally only, nothing downloaded
 - [x] Content inventory and migration map from verified sources
 
@@ -35,6 +35,9 @@ Last updated 2026-10-25.
 ## Stage E: Ship
 
 - [x] Committed and pushed to `claude/stoic-turing-gmzipd`
+- [x] Pull request opened against `main` (Nair-Solutions/nalanda-school-demo#1)
+- [x] GitHub Actions enabled for the repository (first runs had failed to start while Actions was blocked)
+- [ ] CI green on the pull request
 - [ ] Vercel project import: **needs the owner** (no Vercel access from this environment)
 - [ ] Preview tested
 - [ ] Production deploy and DNS: **needs school approval**
