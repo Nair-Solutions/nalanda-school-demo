@@ -37,6 +37,7 @@ Last updated 2026-10-26.
 - [x] Committed and pushed to `claude/stoic-turing-gmzipd`
 - [x] Pull request opened against `main` (Nair-Solutions/nalanda-school-demo#1)
 - [x] GitHub Actions enabled for the repository (first runs had failed to start while Actions was blocked)
+- [x] Repository made public so Actions runs on free minutes (private runs were blocked by organization billing)
 - [ ] CI green on the pull request
 - [ ] Vercel project import: **needs the owner** (no Vercel access from this environment)
 - [ ] Preview tested
