@@ -95,38 +95,31 @@ const en = {
   },
   home: {
     metaTitle: "Nalanda English Medium Hr. Sec. School, Bhilai",
-    heroEyebrow: "Bhilai, Chhattisgarh",
-    heroLead:
-      "Welcome to our school's website. Find admission enquiries, rules and regulations, academic resources, mandatory public disclosure and our students' latest achievements in one place.",
-    heroPrimary: "Admission enquiry",
-    heroSecondary: "Explore the school",
-    heroPosterCaption: "Our judo medal winners, CBSE Far East Zone Championship 2026",
-    quickLinksHeading: "Quick links for parents",
-    introEyebrow: "About the school",
-    introTitle: "English-medium education up to Class 12",
-    introBody:
-      "Nalanda English Medium Higher Secondary School teaches students in English medium through to the higher secondary level (Class 12) in Bhilai, Chhattisgarh.",
-    introBody2:
-      "Our school emblem carries the motto “Run your race to win” – a reminder to every student to give their own best effort.",
-    introCta: "About the school",
-    achievementsEyebrow: "School achievements",
+    heroLead: "An English-medium school in Bhilai, Chhattisgarh, teaching students up to Class 12.",
+    callbackHeading: "Request a call back",
+    callbackBody:
+      "Leave your name and mobile number. The school office can call you back about admission.",
+    callbackSubmit: "Request a call back",
+    callbackSuccessTitle: "Thank you. Your request has reached the school office.",
+    heroImageFallback:
+      "The school emblem: an open book in a seal, with the motto “Run your race to win”.",
+    documentsTitle: "Rules, calendars and documents",
+    documentsBody:
+      "Everything families look up most, in one place. Items marked “Being updated” appear here as soon as the school publishes them.",
+    nameTitle: "Nalanda: a name from India’s history of learning",
+    nameBody:
+      "Nalanda was one of the great centres of learning in ancient India, in present-day Bihar. Its ruins are now a UNESCO World Heritage Site.",
+    nameBody2:
+      "Our school carries the same name, and the motto on our emblem: “Run your race to win”.",
     achievementsTitle: "Five medals at the CBSE Far East Zone Judo Championship 2026",
     achievementsBody:
       "Our students won one gold, three silver and one further medal at the championship held at Maharishi Vidya Mandir, Tatibandh, Raipur.",
     achievementsCta: "See all achievements",
-    resourcesEyebrow: "Rules & Regulations",
-    resourcesTitle: "Guidelines, calendars and documents",
-    resourcesBody:
-      "Important school information in one place. Items marked “Being updated” will be published as soon as the school provides the current version.",
-    galleryEyebrow: "Gallery",
-    galleryTitle: "Campus photographs",
+    galleryTitle: "See the school",
     galleryBody:
       "A gallery of school-approved photographs is being prepared. Meanwhile, you can view photos of the school on Google Maps.",
     galleryCta: "Go to the gallery",
-    enquiryTitle: "Thinking about admission?",
-    enquiryBody:
-      "Send your question to the school office through the online enquiry form. Only the details needed to reply to you are requested.",
-    enquiryCta: "Send an enquiry",
+    noticesTitle: "Latest notices",
   },
   about: {
     metaTitle: "About Us",
@@ -282,6 +275,7 @@ const en = {
     heading: "Documents",
     empty: "No documents have been published yet.",
     fileType: "PDF",
+    updated: "Updated {date}",
   },
   contact: {
     metaTitle: "Contact Us",
@@ -312,6 +306,41 @@ const en = {
     rightsHeading: "Your choices",
     rightsBody:
       "To ask for an enquiry you sent to be deleted, contact the school office. You can clear the language cookie at any time through your browser settings.",
+  },
+  search: {
+    open: "Search",
+    dialogLabel: "Search the website",
+    inputLabel: "Search pages and documents",
+    placeholder: "For example: calendar, admission, book list",
+    noResults: "Nothing found for “{q}”. Try another word, or send an enquiry.",
+    resultCount: "{n} results",
+    close: "Close search",
+    kindPage: "Page",
+    kindDocument: "Document",
+  },
+  mobileBar: {
+    label: "Quick actions",
+    enquire: "Enquire",
+    search: "Search",
+    call: "Call",
+    whatsapp: "WhatsApp",
+  },
+  pager: {
+    label: "More in Rules & Regulations",
+    previous: "Previous",
+    next: "Next",
+  },
+  viewer: {
+    label: "Photo viewer",
+    filterLabel: "Show photos of",
+    filterAll: "All",
+    previous: "Previous photo",
+    next: "Next photo",
+    close: "Close",
+    counter: "{i} of {n}",
+    openPhoto: "Open photo: {title}",
+    openOriginal: "Open full-resolution image",
+    credit: "Photo: {credit}",
   },
   form: {
     parentName: "Parent / guardian name",

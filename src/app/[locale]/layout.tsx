@@ -8,6 +8,9 @@ import { jsonLdString } from "@/lib/json-ld";
 import { school } from "@/content/school";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
+import { MobileActionBar } from "@/components/layout/MobileActionBar";
+import { SearchDialog } from "@/components/navigation/SearchDialog";
+import { buildSearchIndex } from "@/lib/search-index";
 
 export const dynamicParams = false;
 
@@ -50,7 +53,11 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
   };
 
   return (
-    <html lang={htmlLang[locale]} className={fontVariables}>
+    <html lang={htmlLang[locale]} className={fontVariables} suppressHydrationWarning>
+      <head>
+        {/* Marks the page as scripted so homepage entrances can pre-hide content (see globals.css). */}
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.dataset.js='1'" }} />
+      </head>
       <body className="flex min-h-dvh flex-col">
         <a
           href="#main"
@@ -58,11 +65,23 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
         >
           {dict.common.skipToContent}
         </a>
-        <SiteHeader locale={locale} header={dict.header} nav={dict.nav} motto={dict.school.motto} />
+        <SiteHeader
+          locale={locale}
+          header={dict.header}
+          nav={dict.nav}
+          searchLabel={dict.search.open}
+        />
         <main id="main" tabIndex={-1} className="flex-1 focus:outline-none">
           {children}
         </main>
         <SiteFooter locale={locale} dict={dict} />
+        <MobileActionBar
+          locale={locale}
+          t={dict.mobileBar}
+          phone={school.phone}
+          whatsapp={school.whatsapp}
+        />
+        <SearchDialog index={buildSearchIndex(locale)} t={dict.search} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: jsonLdString(organization) }}

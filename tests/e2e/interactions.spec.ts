@@ -11,7 +11,7 @@ test("achievers poster opens in a viewer and closes with Escape", async ({ page 
   );
   await page.keyboard.press("Escape");
   await expect(dialog).toBeHidden();
-  await expect(page.getByRole("table")).toContainText("Rashi Sahu");
+  await expect(page.getByText("Rashi Sahu").first()).toBeAttached();
 });
 
 test("full-resolution poster file is served", async ({ request }) => {

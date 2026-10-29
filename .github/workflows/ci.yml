@@ -26,6 +26,10 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run lint
+      - name: Design detector (impeccable, advisory)
+        # Flags template/"AI-made" patterns. Advisory until the existing findings are triaged.
+        continue-on-error: true
+        run: npx --yes impeccable detect --github src/
       - run: npm run format:check
       - run: npm run typecheck
       - run: npm test

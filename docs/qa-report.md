@@ -58,3 +58,23 @@ Comparison with the earlier demo (`reference/legacy-demo`): the new build keeps 
 4. Rate limiting is per serverless instance (best effort).
 5. Hindi pages carry ~308 KB of fonts. Options: drop Noto Serif Devanagari headings in favour of Mukta bold (−~125 KB), or self-host subsetted fonts.
 6. Not tested: real Safari/iOS and Firefox (Chromium only), real screen readers (axe only), real email delivery.
+
+---
+
+## Redesign release (2026-10-29)
+
+Design system rebuilt from impeccable, taste-skill, ui-ux-pro-max and awesome-design-md (see `DESIGN.md`, `PRODUCT.md`, `design-system/nalanda/MASTER.md`).
+
+| Check                                       | Result                                                                                                                                                                                                                                                                                                |
+| ------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Lint, Prettier, `tsc` (strict)              | ✅                                                                                                                                                                                                                                                                                                    |
+| Unit tests (Vitest)                         | ✅ **42 passed** (adds search index/matching)                                                                                                                                                                                                                                                         |
+| Production build                            | ✅ 39 static routes + API                                                                                                                                                                                                                                                                             |
+| E2E (Playwright, desktop / tablet / mobile) | ✅ **200 passed**, 67 skipped by design. New: call-back card (validation, honest not-configured, success only on 200), search (button, mobile bar, Ctrl/⌘+K, Hindi + English words, empty state, Escape), mobile action bar, rules pager, gallery viewer, stacked results on phones, scroll entrances |
+| axe WCAG 2.2 AA on all 31 pages             | ✅ 0 violations                                                                                                                                                                                                                                                                                       |
+| Link check                                  | ✅ 50 internal URLs                                                                                                                                                                                                                                                                                   |
+| Lighthouse (mobile, local)                  | `/en` 89 / 100 / 100 / 100 (LCP 3.4 s, CLS 0.05) · `/hi` 92 / 100 / 100 / 100 (LCP 2.8 s)                                                                                                                                                                                                             |
+
+Bugs found and fixed during this round: search ranking ignored English titles on Hindi pages; Escape in the search field only cleared the text; the six-line hero headline (now "Nalanda" + the rest of the name); emblem fallback too tall on phones; footer padding under the mobile bar.
+
+**Not run here:** `npx impeccable detect` and the taste-skill `inspect.mjs` (running third-party scripts was not permitted in this environment; the detector runs in CI as an advisory step once GitHub Actions billing is fixed). Real iOS/Safari and screen readers remain untested.

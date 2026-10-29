@@ -9,6 +9,10 @@ Tick each item before the production deploy.
 
 ## Content (from the school)
 
+- [ ] Hero photograph of ancient Nalanda (option A): download a commercially licensed photo (e.g. Wikimedia Commons), add it to `public/images/hero/` and fill `src/content/hero.ts` with its credit
+- [ ] WhatsApp number → `school.whatsapp` (enables the WhatsApp button in the mobile bar)
+- [ ] Notices → `src/content/notices.ts`; facilities with photos → `src/content/facilities.ts`; gallery photos → `src/content/gallery.ts`
+
 - [ ] Postal address, phone, email → `src/content/school.ts`
 - [ ] Inbox that should receive enquiries
 - [ ] Guidelines, academic calendar, book list, teachers list, mandatory public disclosure (PDFs) → `public/documents/` + `src/content/documents.ts`

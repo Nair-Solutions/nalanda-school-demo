@@ -25,19 +25,16 @@ export default async function PublicDisclosurePage({
       lead={t.lead}
     >
       <section aria-labelledby="disclosure-sections">
-        <h2 id="disclosure-sections" className="text-navy-900 text-2xl font-bold">
+        <h2 id="disclosure-sections" className="text-heading text-navy-900">
           {t.sectionsHeading}
         </h2>
-        <ol className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <ol className="mt-6 grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
           {sections.map((label, index) => (
-            <li
-              key={label}
-              className="border-line flex items-center gap-3 rounded-xl border bg-white p-4"
-            >
-              <span className="bg-navy-800 flex h-9 w-9 shrink-0 items-center justify-center rounded-full font-semibold text-white">
+            <li key={label} className="flex items-baseline gap-3 rounded-2xl bg-white p-5">
+              <span className="font-display text-crimson-800 text-xl font-bold">
                 {String.fromCharCode(65 + index)}
               </span>
-              <span className="text-navy-900 font-semibold">{label}</span>
+              <span className="text-title text-navy-900">{label}</span>
             </li>
           ))}
         </ol>

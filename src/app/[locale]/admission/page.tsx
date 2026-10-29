@@ -18,22 +18,17 @@ export default async function AdmissionPage({ params }: PageProps<"/[locale]/adm
   return (
     <>
       <PageHeader locale={locale} dict={dict} slug="admission" title={t.title} lead={t.lead} />
-      <div className="container-page grid gap-12 py-12 sm:py-16">
+      <div className="container-page grid gap-14 py-12 sm:py-16">
         <section aria-labelledby="admission-steps">
-          <h2 id="admission-steps" className="text-navy-900 text-2xl font-bold sm:text-3xl">
+          <h2 id="admission-steps" className="text-heading text-navy-900">
             {t.stepsHeading}
           </h2>
-          <ol className="mt-6 grid gap-4 md:grid-cols-3">
-            {steps.map(([title, body], index) => (
-              <li
-                key={title}
-                className="border-line shadow-card relative rounded-xl border bg-white p-6"
-              >
-                <span className="bg-crimson-800 font-display flex h-10 w-10 items-center justify-center rounded-full text-lg font-bold text-white">
-                  {index + 1}
-                </span>
-                <h3 className="text-navy-900 mt-4 text-lg font-bold">{title}</h3>
-                <p className="text-muted mt-1.5">{body}</p>
+          {/* The order matters, so this is a real ordered list. */}
+          <ol className="marker:font-display marker:text-crimson-800 mt-8 grid list-inside list-decimal gap-x-10 gap-y-8 marker:text-2xl marker:font-bold md:grid-cols-3">
+            {steps.map(([title, body]) => (
+              <li key={title}>
+                <h3 className="text-title text-navy-900 inline">{title}</h3>
+                <p className="text-body text-ink mt-2">{body}</p>
               </li>
             ))}
           </ol>
@@ -48,13 +43,14 @@ export default async function AdmissionPage({ params }: PageProps<"/[locale]/adm
         />
 
         <section
-          aria-labelledby="admission-form"
-          className="border-line shadow-card rounded-2xl border bg-white p-6 sm:p-10"
+          id="admission-form"
+          aria-labelledby="admission-form-heading"
+          className="scroll-mt-24 rounded-3xl bg-white p-6 sm:p-10"
         >
-          <h2 id="admission-form" className="text-navy-900 text-2xl font-bold sm:text-3xl">
+          <h2 id="admission-form-heading" className="text-heading text-navy-900">
             {t.formHeading}
           </h2>
-          <div className="mt-6">
+          <div className="mt-8 max-w-4xl">
             <EnquiryForm
               locale={locale}
               t={dict.form}

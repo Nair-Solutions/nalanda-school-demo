@@ -42,3 +42,15 @@ Last updated 2026-10-26.
 - [ ] Vercel project import: **needs the owner** (no Vercel access from this environment)
 - [ ] Preview tested
 - [ ] Production deploy and DNS: **needs school approval**
+
+## Redesign (2026-10-29): all roadmap phases
+
+- [x] Phase 1: `PRODUCT.md`, `DESIGN.md`, `design-system/nalanda/MASTER.md`; impeccable, taste-skill and ui-ux-pro-max in `.claude/skills/`; impeccable detector in CI (advisory)
+- [x] Phase 2: visual reset (no eyebrows, icon-card grids, resting shadows, gradients/blobs, side borders; pill actions; 5-size type scale; themed selection, caret, scrollbars)
+- [x] Phase 3: homepage (working call-back card in the hero, Nalanda heritage band, documents list, achievements, see the school) — hero photo slot ready, **photo not yet added** (Wikimedia was unreachable from the build environment)
+- [x] Phase 4: document pages (dates/sizes, previous/next, reading width)
+- [x] Phase 5: mobile (bottom action bar, bottom-sheet menu, stacked results; Call/WhatsApp appear once numbers are verified)
+- [x] Phase 6: gallery viewer (filters, swipe, keys, Motion transitions) and data-driven facilities — **waiting for school photos**
+- [x] Phase 7: motion (CSS hero reveal, homepage entrances, dialog entrance, reduced-motion)
+- [x] Phase 8: site search (pages + documents, both languages) and notices strip (shows when notices exist)
+- [ ] Not built: "Find your class" (needs class-wise data) and visit booking (school has not confirmed visits)

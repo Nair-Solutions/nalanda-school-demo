@@ -29,3 +29,16 @@ Every interactive control, what it should do, and the automated test that checks
 | Document View/Download buttons                   | Open/download the PDF                                                                                                       | `DocumentList`                                                                     | Renders when documents exist                                                        | **No documents supplied yet**, so not rendered                  | N/A (no data)           |
 | Search                                           | —                                                                                                                           | **Not built.** No useful search corpus yet, and no decorative search icon is shown | —                                                                                   | —                                                               | N/A                     |
 | Parent portal                                    | —                                                                                                                           | **Not linked.** No verified portal                                                 | —                                                                                   | —                                                               | N/A                     |
+
+## Added in the redesign
+
+| Control                                      | Expected action                                                                                  | Test                            | Status |
+| -------------------------------------------- | ------------------------------------------------------------------------------------------------ | ------------------------------- | ------ |
+| Homepage call-back card                      | Validates (translated), posts to `/api/enquiry`, success only on 200                             | `redesign.spec`                 | Pass   |
+| Search (header button, mobile bar, Ctrl/⌘+K) | Opens dialog, matches pages/documents in both languages, Enter opens first result, Escape closes | `redesign.spec` + `search.test` | Pass   |
+| Mobile action bar                            | Enquire → admission form; Search; Call/WhatsApp only with verified numbers                       | `redesign.spec`                 | Pass   |
+| Bottom-sheet menu                            | Opens from bottom, close button, backdrop, Escape, closes on navigation                          | `navigation.spec`               | Pass   |
+| Rules previous/next                          | Links to neighbouring Rules & Regulations pages                                                  | `redesign.spec`                 | Pass   |
+| Gallery viewer                               | Filters (when >1 category), tiles open full-screen viewer, arrows/swipe/Escape, counter          | `redesign.spec`                 | Pass   |
+| Results on phones                            | Stacked rows < 640px, table above                                                                | `redesign.spec`                 | Pass   |
+| Homepage entrances                           | Sections fade/rise once in view; visible without script; none with reduced motion                | `redesign.spec`                 | Pass   |

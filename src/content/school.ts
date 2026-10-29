@@ -20,6 +20,8 @@ export const school = {
   /** Not yet verified: never publish a guessed address, phone or email. */
   postalAddress: null as string | null,
   phone: null as string | null,
+  /** WhatsApp number (with country code) for the mobile action bar; only once verified. */
+  whatsapp: null as string | null,
   email: null as string | null,
   /** Parent portal: none verified, so none is linked. */
   parentPortalUrl: null as string | null,

@@ -24,3 +24,9 @@ blob-report/
 # misc
 .DS_Store
 npm-debug.log*
+
+# design tooling working files (shared artifacts like critique/*.md may be committed deliberately)
+.taste-skill/
+.impeccable/*
+!.impeccable/config.json
+!.impeccable/critique/

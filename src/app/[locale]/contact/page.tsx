@@ -16,33 +16,21 @@ export default async function ContactPage({ params }: PageProps<"/[locale]/conta
     <>
       <PageHeader locale={locale} dict={dict} slug="contact" title={t.title} lead={t.lead} />
       <div className="container-page grid gap-10 py-12 sm:py-16 lg:grid-cols-[0.8fr_1.2fr]">
-        <div className="grid content-start gap-4">
-          <section
-            aria-labelledby="contact-location"
-            className="border-line rounded-xl border bg-white p-6"
-          >
-            <h2
-              id="contact-location"
-              className="text-navy-900 flex items-center gap-2 text-xl font-bold"
-            >
+        <div className="grid content-start gap-2">
+          <section aria-labelledby="contact-location" className="rounded-2xl bg-white p-6">
+            <h2 id="contact-location" className="text-title text-navy-900 flex items-center gap-2">
               <MapPin aria-hidden="true" className="text-crimson-800" size={22} />
               {t.locationHeading}
             </h2>
-            <p className="mt-2 text-lg">{school.postalAddress ?? dict.school.place}</p>
+            <p className="text-body mt-2">{school.postalAddress ?? dict.school.place}</p>
           </section>
-          <section
-            aria-labelledby="contact-details"
-            className="border-line rounded-xl border bg-white p-6"
-          >
-            <h2
-              id="contact-details"
-              className="text-navy-900 flex items-center gap-2 text-xl font-bold"
-            >
+          <section aria-labelledby="contact-details" className="rounded-2xl bg-white p-6">
+            <h2 id="contact-details" className="text-title text-navy-900 flex items-center gap-2">
               <Phone aria-hidden="true" className="text-crimson-800" size={22} />
               {t.detailsHeading}
             </h2>
             {hasDetails ? (
-              <ul className="mt-2 grid gap-1 text-lg">
+              <ul className="text-body mt-2 grid gap-1">
                 {school.phone && (
                   <li>
                     <a
@@ -65,17 +53,14 @@ export default async function ContactPage({ params }: PageProps<"/[locale]/conta
                 )}
               </ul>
             ) : (
-              <p className="text-muted mt-2" data-testid="contact-pending">
+              <p className="text-body text-ink mt-2" data-testid="contact-pending">
                 {t.detailsPending}
               </p>
             )}
           </section>
         </div>
-        <section
-          aria-labelledby="contact-form"
-          className="border-line shadow-card rounded-2xl border bg-white p-6 sm:p-8"
-        >
-          <h2 id="contact-form" className="text-navy-900 text-2xl font-bold">
+        <section aria-labelledby="contact-form" className="rounded-3xl bg-white p-6 sm:p-8">
+          <h2 id="contact-form" className="text-heading text-navy-900">
             {t.formHeading}
           </h2>
           <div className="mt-6">

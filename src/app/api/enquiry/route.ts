@@ -21,7 +21,9 @@ export async function POST(request: NextRequest) {
     request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
     request.headers.get("x-real-ip") ||
     "unknown";
-  if (!rateLimit(`enquiry:${ip}`, 5, 10 * 60 * 1000)) {
+  // 5 per 10 minutes per IP; overridable for automated test runs that share one IP.
+  const limit = Number(process.env.ENQUIRY_RATE_LIMIT) || 5;
+  if (!rateLimit(`enquiry:${ip}`, limit, 10 * 60 * 1000)) {
     return fail(429, "rateLimited");
   }
 

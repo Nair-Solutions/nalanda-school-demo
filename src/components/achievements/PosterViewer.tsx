@@ -31,7 +31,7 @@ export function PosterViewer({ labels, sizes, priority = false, className = "" }
       <button
         type="button"
         onClick={() => dialogRef.current?.showModal()}
-        className="group shadow-card relative block w-full overflow-hidden rounded-xl bg-white ring-1 ring-black/5"
+        className="group relative block w-full overflow-hidden rounded-[4px] bg-white"
         data-testid="poster-open"
       >
         <Image
@@ -52,7 +52,7 @@ export function PosterViewer({ labels, sizes, priority = false, className = "" }
       <dialog
         ref={dialogRef}
         aria-label={labels.dialogLabel}
-        className="backdrop:bg-navy-950/80 m-auto max-h-[96dvh] w-[min(980px,96vw)] rounded-xl bg-white p-0"
+        className="backdrop:bg-navy-950/80 m-auto max-h-[96dvh] w-[min(980px,96vw)] rounded-2xl bg-white p-0 shadow-[var(--shadow-float)]"
         onClick={(event) => {
           if (event.target === dialogRef.current) dialogRef.current?.close();
         }}

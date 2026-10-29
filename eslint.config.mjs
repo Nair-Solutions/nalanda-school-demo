@@ -9,6 +9,7 @@ const config = [
       ".next/**",
       "node_modules/**",
       "reference/**",
+      ".claude/**",
       "playwright-report/**",
       "test-results/**",
       "next-env.d.ts",

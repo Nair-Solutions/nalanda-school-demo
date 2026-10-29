@@ -16,25 +16,20 @@ interface Props {
 /** Honest empty state for content the school has not supplied yet. */
 export function PendingNotice({ dict, locale, detail, heading, showCta = true }: Props) {
   return (
-    <section
-      className="border-gold-500/60 bg-gold-100/40 rounded-2xl border border-dashed p-6 sm:p-8"
-      data-testid="pending-notice"
-    >
-      <div className="flex items-start gap-4">
-        <span className="text-gold-500 mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white shadow-sm">
-          <Clock aria-hidden="true" size={20} />
-        </span>
-        <div>
-          <h2 className="text-navy-900 text-xl font-semibold">{heading ?? dict.pending.title}</h2>
-          {detail && <p className="text-muted mt-2">{detail}</p>}
-          <p className="text-muted mt-2">{dict.pending.body}</p>
-          {showCta && (
-            <ButtonLink href={pagePath(locale, "contact")} variant="secondary" className="mt-5">
-              {dict.pending.cta}
-            </ButtonLink>
-          )}
-        </div>
+    <section className="bg-gold-100/70 rounded-2xl p-6 sm:p-8" data-testid="pending-notice">
+      <h2 className="text-title text-navy-900 flex items-center gap-2.5">
+        <Clock aria-hidden="true" size={22} className="text-crimson-800 shrink-0" />
+        {heading ?? dict.pending.title}
+      </h2>
+      <div className="measure text-body text-ink mt-3 space-y-2">
+        {detail && <p>{detail}</p>}
+        <p>{dict.pending.body}</p>
       </div>
+      {showCta && (
+        <ButtonLink href={pagePath(locale, "contact")} variant="secondary" className="mt-6">
+          {dict.pending.cta}
+        </ButtonLink>
+      )}
     </section>
   );
 }

@@ -14,6 +14,10 @@ export interface SchoolDocument {
   file: string | null;
   /** Where the file came from (original site URL or "supplied by school"). */
   source: string | null;
+  /** ISO date the document was issued or last updated, e.g. "2026-04-01". */
+  date?: string;
+  /** File size in kilobytes, shown next to the download button. */
+  sizeKb?: number;
 }
 
 export const documents: SchoolDocument[] = [];

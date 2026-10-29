@@ -30,6 +30,8 @@ export default defineConfig({
         command: `npx next start -p ${PORT}`,
         url: `http://localhost:${PORT}/en`,
         reuseExistingServer: !process.env.CI,
+        // Every test posts from 127.0.0.1, so lift the per-IP enquiry limit for the test server only.
+        env: { ENQUIRY_RATE_LIMIT: "1000" },
         timeout: 60_000,
       },
 });

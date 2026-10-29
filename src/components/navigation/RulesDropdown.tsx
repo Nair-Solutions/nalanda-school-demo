@@ -106,7 +106,7 @@ export function RulesDropdown({ label, overviewHref, overviewLabel, items, activ
       <div
         id={menuId}
         hidden={!open}
-        className="border-line shadow-card absolute top-full left-0 z-50 w-72 rounded-b-xl border border-t-0 bg-white p-2"
+        className="border-line absolute top-full left-0 z-50 w-72 rounded-b-xl border border-t-0 bg-white p-2 shadow-[var(--shadow-float)]"
       >
         <ul>
           <li>

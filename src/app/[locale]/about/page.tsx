@@ -30,60 +30,76 @@ export default async function AboutPage({ params }: PageProps<"/[locale]/about">
   return (
     <>
       <PageHeader locale={locale} dict={dict} slug="about" title={t.title} lead={t.lead} />
-      <div className="container-page grid gap-12 py-12 sm:py-16">
-        <section aria-labelledby="about-glance" className="grid gap-8 lg:grid-cols-[1fr_1fr]">
-          <div>
-            <h2 id="about-glance" className="text-navy-900 text-2xl font-bold sm:text-3xl">
-              {t.identityHeading}
-            </h2>
-            <dl className="divide-line border-line mt-5 divide-y rounded-xl border bg-white">
-              {facts.map(([term, value, english]) => (
-                <div key={term} className="grid gap-1 p-4 sm:grid-cols-[180px_1fr] sm:gap-4">
-                  <dt className="text-muted font-semibold">{term}</dt>
-                  <dd className="text-navy-900 font-semibold" lang={english ? "en" : undefined}>
-                    {value}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-          <div className="bg-navy-50 rounded-2xl p-6 sm:p-8">
-            <h2 className="text-navy-900 text-2xl font-bold sm:text-3xl">{t.emblemHeading}</h2>
-            <div className="mt-5 flex flex-col items-center gap-6 sm:flex-row sm:items-start">
+      <section
+        aria-labelledby="about-glance"
+        className="container-page grid gap-12 py-12 sm:py-16 lg:grid-cols-2 lg:gap-20"
+      >
+        <div>
+          <h2 id="about-glance" className="text-heading text-navy-900">
+            {t.identityHeading}
+          </h2>
+          <dl className="mt-8 grid gap-2">
+            {facts.map(([term, value, english]) => (
+              <div
+                key={term}
+                className="grid gap-1 rounded-2xl bg-white p-5 sm:grid-cols-[11rem_1fr] sm:gap-6"
+              >
+                <dt className="text-muted text-base">{term}</dt>
+                <dd className="text-title text-navy-900" lang={english ? "en" : undefined}>
+                  {value}
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+        <div>
+          <h2 className="text-heading text-navy-900">{t.emblemHeading}</h2>
+          <div className="mt-8 flex flex-col gap-8 sm:flex-row sm:items-start">
+            <div className="h-44 w-44 shrink-0 rounded-full bg-white p-5">
               <Image
                 src="/branding/nalanda-emblem.png"
                 alt=""
                 width={285}
                 height={285}
-                sizes="160px"
-                className="shadow-card h-40 w-40 shrink-0 rounded-full bg-white p-3"
+                sizes="176px"
+                className="h-full w-full object-contain"
               />
-              <p className="text-muted text-lg leading-relaxed">{t.emblemBody}</p>
             </div>
+            <p className="measure text-body text-ink">{t.emblemBody}</p>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <PendingNotice dict={dict} locale={locale} heading={t.storyHeading} detail={t.storyBody} />
-
-        <section aria-labelledby="about-more">
-          <h2 id="about-more" className="text-navy-900 text-2xl font-bold">
-            {t.linksHeading}
-          </h2>
-          <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {related.map((slug) => (
-              <li key={slug}>
-                <Link
-                  href={pagePath(locale, slug)}
-                  className="border-line text-navy-900 hover:border-navy-800/40 flex items-center justify-between rounded-xl border bg-white p-4 font-semibold"
-                >
-                  {dict.nav[pageNavKey[slug]]}
-                  <ArrowRight aria-hidden="true" size={18} className="text-crimson-800" />
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </section>
-      </div>
+      <section className="bg-navy-50">
+        <div className="container-page grid gap-12 py-12 sm:py-16">
+          <PendingNotice
+            dict={dict}
+            locale={locale}
+            heading={t.storyHeading}
+            detail={t.storyBody}
+          />
+          <div>
+            <h2 className="text-heading text-navy-900">{t.linksHeading}</h2>
+            <ul className="mt-6 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+              {related.map((slug) => (
+                <li key={slug}>
+                  <Link
+                    href={pagePath(locale, slug)}
+                    className="text-title text-navy-900 flex min-h-16 items-center justify-between gap-3 rounded-2xl bg-white p-5 hover:underline"
+                  >
+                    {dict.nav[pageNavKey[slug]]}
+                    <ArrowRight
+                      aria-hidden="true"
+                      size={20}
+                      className="text-crimson-800 shrink-0"
+                    />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

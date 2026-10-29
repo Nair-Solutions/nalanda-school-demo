@@ -13,25 +13,24 @@ export default async function AchievementsPage({ params }: PageProps<"/[locale]/
   return (
     <>
       <PageHeader locale={locale} dict={dict} slug="achievements" title={t.title} lead={t.lead} />
-      <div className="container-page grid gap-12 py-12 sm:py-16">
+      <div className="container-page grid gap-14 py-12 sm:py-16">
         <section
           aria-labelledby="judo-2026"
-          className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,480px)] lg:items-start"
+          className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,480px)] lg:items-start"
         >
           <div>
-            <p className="eyebrow">2026</p>
-            <h2 id="judo-2026" className="text-navy-900 mt-2 text-2xl font-bold sm:text-3xl">
+            <h2 id="judo-2026" className="text-heading text-navy-900">
               {t.eventHeading}
             </h2>
-            <p className="text-muted mt-3 flex items-start gap-2">
-              <MapPin aria-hidden="true" size={18} className="text-crimson-800 mt-1 shrink-0" />
+            <p className="text-body text-ink mt-4 flex items-start gap-2">
+              <MapPin aria-hidden="true" size={20} className="text-crimson-800 mt-1 shrink-0" />
               <span>
-                <span className="text-ink font-semibold">{t.eventVenueLabel}:</span>{" "}
+                <span className="font-semibold">{t.eventVenueLabel}:</span>{" "}
                 {dict.achievementsData.venue}
               </span>
             </p>
-            <p className="text-muted mt-4 text-lg leading-relaxed">{t.eventBody}</p>
-            <div className="mt-6">
+            <p className="measure text-body text-ink mt-4">{t.eventBody}</p>
+            <div className="mt-8">
               <ResultsTable dict={dict} />
             </div>
           </div>
@@ -42,14 +41,11 @@ export default async function AchievementsPage({ params }: PageProps<"/[locale]/
             labels={{ ...dict.poster, newTab: dict.common.opensInNewTab }}
           />
         </section>
-        <section
-          aria-labelledby="more-achievements"
-          className="border-line rounded-xl border border-dashed p-6"
-        >
-          <h2 id="more-achievements" className="text-navy-900 text-xl font-bold">
+        <section aria-labelledby="more-achievements" className="bg-navy-50 rounded-2xl p-6 sm:p-8">
+          <h2 id="more-achievements" className="text-title text-navy-900">
             {t.moreHeading}
           </h2>
-          <p className="text-muted mt-2">{t.moreBody}</p>
+          <p className="text-body text-ink mt-2">{t.moreBody}</p>
         </section>
       </div>
     </>

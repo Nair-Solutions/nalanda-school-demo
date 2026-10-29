@@ -37,11 +37,7 @@ export function PageHeader({ locale, dict, slug, title, lead, parent }: Props) {
 
   return (
     <div className="bg-navy-800 relative overflow-hidden text-white">
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute -top-24 -right-24 h-72 w-72 rounded-full border-[28px] border-white/5"
-      />
-      <div className="container-page relative py-10 sm:py-14">
+      <div className="container-page py-12 sm:py-20">
         <nav aria-label={dict.common.breadcrumb}>
           <ol className="flex flex-wrap items-center gap-1 text-sm text-white/70">
             {crumbs.map((crumb, index) => {
@@ -63,10 +59,8 @@ export function PageHeader({ locale, dict, slug, title, lead, parent }: Props) {
             })}
           </ol>
         </nav>
-        <h1 className="mt-4 max-w-4xl text-3xl leading-tight font-bold sm:text-4xl lg:text-5xl">
-          {title}
-        </h1>
-        {lead && <p className="mt-4 max-w-3xl text-lg text-white/80">{lead}</p>}
+        <h1 className="text-display mt-5 max-w-5xl">{title}</h1>
+        {lead && <p className="measure text-body mt-5 text-white/85 sm:text-xl">{lead}</p>}
       </div>
       <script
         type="application/ld+json"

@@ -3,20 +3,21 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Menu, Search, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/get-dictionary";
 import { pageNavKey, pagePath, rulesMenu, type PageSlug } from "@/content/routes";
 import { LanguageToggle } from "@/components/navigation/LanguageToggle";
 import { RulesDropdown } from "@/components/navigation/RulesDropdown";
+import { openSearch } from "@/components/navigation/SearchDialog";
 import { buttonClasses } from "@/components/ui/ButtonLink";
 
 interface Props {
   locale: Locale;
   header: Dictionary["header"];
   nav: Dictionary["nav"];
-  motto: string;
+  searchLabel: string;
 }
 
 const desktopBefore = [
@@ -27,18 +28,16 @@ const desktopBefore = [
   "facilities",
 ] as const satisfies readonly PageSlug[];
 const desktopAfter = ["achievements", "gallery", "contact"] as const satisfies readonly PageSlug[];
-const mobileOrder = [
+const mobileTop = [
   "",
   "about",
   "academics",
   "admission",
   "facilities",
-  "achievements",
-  "gallery",
-  "contact",
 ] as const satisfies readonly PageSlug[];
+const mobileBottom = ["achievements", "gallery", "contact"] as const satisfies readonly PageSlug[];
 
-export function SiteHeader({ locale, header, nav, motto }: Props) {
+export function SiteHeader({ locale, header, nav, searchLabel }: Props) {
   const pathname = usePathname() ?? `/${locale}`;
   const [menuOpen, setMenuOpen] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
@@ -49,7 +48,7 @@ export function SiteHeader({ locale, header, nav, motto }: Props) {
     isCurrent("rules-and-regulations") || rulesMenu.some((slug) => isCurrent(slug));
   const label = (slug: PageSlug) => nav[pageNavKey[slug]];
 
-  // Close the mobile menu after navigation.
+  // Close the menu after navigation.
   const [lastPath, setLastPath] = useState(pathname);
   if (pathname !== lastPath) {
     setLastPath(pathname);
@@ -88,15 +87,13 @@ export function SiteHeader({ locale, header, nav, motto }: Props) {
     </li>
   );
 
-  const mobileLink = (slug: PageSlug, nested = false) => (
+  const sheetLink = (slug: PageSlug, nested = false) => (
     <li key={slug || "home"}>
       <Link
         href={pagePath(locale, slug)}
         aria-current={isCurrent(slug) ? "page" : undefined}
-        className={`flex min-h-11 items-center rounded-lg px-3 ${nested ? "text-[15px]" : "text-base font-semibold"} ${
-          isCurrent(slug)
-            ? "bg-navy-50 text-crimson-800 font-semibold"
-            : "text-ink hover:bg-navy-50"
+        className={`flex min-h-12 items-center rounded-xl px-3 ${nested ? "text-base" : "text-lg font-semibold"} ${
+          isCurrent(slug) ? "bg-navy-50 text-crimson-800" : "text-ink hover:bg-navy-50"
         }`}
       >
         {label(slug)}
@@ -106,21 +103,7 @@ export function SiteHeader({ locale, header, nav, motto }: Props) {
 
   return (
     <>
-      <div className="bg-navy-950 hidden text-sm text-white/80 md:block">
-        <div className="container-page flex h-9 items-center justify-between">
-          <p className="font-display text-gold-400 italic" lang="en">
-            “{motto}”
-          </p>
-          <Link
-            href={pagePath(locale, "admission")}
-            className="hover:text-gold-400 font-semibold text-white"
-          >
-            {header.enquire} →
-          </Link>
-        </div>
-      </div>
-
-      <header className="border-line sticky top-0 z-40 border-b bg-white/95 backdrop-blur lg:static">
+      <header className="bg-paper/95 sticky top-0 z-40 backdrop-blur-sm lg:static">
         <div className="container-page flex h-16 items-center justify-between gap-3 sm:h-20">
           <Link
             href={pagePath(locale, "")}
@@ -154,7 +137,7 @@ export function SiteHeader({ locale, header, nav, motto }: Props) {
                   NALANDA
                 </span>
                 <span
-                  className="text-navy-800 block text-[11px] font-semibold tracking-wide"
+                  className="text-navy-800 block text-[11px] font-semibold tracking-wide whitespace-nowrap"
                   lang="en"
                 >
                   ENG. MED. HR. SEC. SCHOOL
@@ -164,6 +147,15 @@ export function SiteHeader({ locale, header, nav, motto }: Props) {
           </Link>
 
           <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+            <button
+              type="button"
+              onClick={openSearch}
+              className="text-navy-800 hover:bg-navy-50 hidden min-h-9 items-center gap-1.5 rounded-full px-3 text-sm font-semibold lg:inline-flex"
+              data-testid="search-button"
+            >
+              <Search aria-hidden="true" size={16} />
+              {searchLabel}
+            </button>
             <LanguageToggle
               locale={locale}
               label={header.switchLanguage}
@@ -177,7 +169,7 @@ export function SiteHeader({ locale, header, nav, motto }: Props) {
             <button
               ref={menuButtonRef}
               type="button"
-              className="border-line text-navy-800 inline-flex h-11 w-11 items-center justify-center rounded-lg border lg:hidden"
+              className="text-navy-800 ring-navy-800/20 inline-flex h-11 w-11 items-center justify-center rounded-full ring-2 ring-inset lg:hidden"
               aria-expanded={menuOpen}
               aria-controls="mobile-menu"
               aria-label={menuOpen ? header.closeMenu : header.openMenu}
@@ -188,35 +180,56 @@ export function SiteHeader({ locale, header, nav, motto }: Props) {
             </button>
           </div>
         </div>
+      </header>
 
+      {/* Phone/tablet menu: a sheet that rises from the bottom, within thumb reach. */}
+      <div hidden={!menuOpen} className="lg:hidden">
+        <div
+          aria-hidden="true"
+          className="bg-navy-950/60 fixed inset-0 z-50"
+          onClick={() => setMenuOpen(false)}
+        />
         <div
           id="mobile-menu"
           ref={panelRef}
-          hidden={!menuOpen}
-          className="border-line max-h-[calc(100dvh-4rem)] overflow-y-auto border-t bg-white lg:hidden"
+          className="fixed inset-x-0 bottom-0 z-50 max-h-[85dvh] overflow-y-auto rounded-t-3xl bg-white pb-[env(safe-area-inset-bottom)] shadow-[var(--shadow-float)]"
         >
-          <nav aria-label={header.mobileNav} className="container-page py-4">
-            <ul className="grid gap-1">
-              {mobileOrder.slice(0, 5).map((slug) => mobileLink(slug))}
+          <nav aria-label={header.mobileNav} className="container-page pt-3 pb-6">
+            <div className="mb-2 flex items-center justify-between">
+              <span aria-hidden="true" className="bg-line h-1.5 w-12 rounded-full" />
+              <button
+                type="button"
+                onClick={() => {
+                  setMenuOpen(false);
+                  menuButtonRef.current?.focus();
+                }}
+                className="text-navy-800 hover:bg-navy-50 inline-flex h-11 w-11 items-center justify-center rounded-full"
+                aria-label={header.closeMenu}
+              >
+                <X aria-hidden="true" />
+              </button>
+            </div>
+            <ul className="grid gap-0.5">
+              {mobileTop.map((slug) => sheetLink(slug))}
               <li>
                 <Link
                   href={pagePath(locale, "rules-and-regulations")}
                   aria-current={isCurrent("rules-and-regulations") ? "page" : undefined}
-                  className={`flex min-h-11 items-center rounded-lg px-3 text-base font-semibold ${
+                  className={`flex min-h-12 items-center rounded-xl px-3 text-lg font-semibold ${
                     isCurrent("rules-and-regulations")
-                      ? "bg-navy-50 text-crimson-800 font-semibold"
+                      ? "bg-navy-50 text-crimson-800"
                       : "text-ink hover:bg-navy-50"
                   }`}
                 >
                   {nav.rules}
                 </Link>
-                <ul className="border-gold-400 ml-3 grid gap-0.5 border-l-2 pl-2">
-                  {rulesMenu.map((slug) => mobileLink(slug, true))}
+                <ul className="ml-3 grid gap-0.5 pl-3">
+                  {rulesMenu.map((slug) => sheetLink(slug, true))}
                 </ul>
               </li>
-              {mobileOrder.slice(5).map((slug) => mobileLink(slug))}
+              {mobileBottom.map((slug) => sheetLink(slug))}
             </ul>
-            <div className="border-line mt-4 flex flex-wrap items-center gap-3 border-t pt-4">
+            <div className="mt-4 flex flex-wrap items-center gap-3 pt-4">
               <Link href={pagePath(locale, "admission")} className={buttonClasses("primary")}>
                 {header.enquire}
               </Link>
@@ -229,12 +242,9 @@ export function SiteHeader({ locale, header, nav, motto }: Props) {
             </div>
           </nav>
         </div>
-      </header>
+      </div>
 
-      <nav
-        aria-label={header.mainNav}
-        className="bg-navy-800 sticky top-0 z-40 hidden shadow-md lg:block"
-      >
+      <nav aria-label={header.mainNav} className="bg-navy-800 sticky top-0 z-40 hidden lg:block">
         <ul className="container-page flex items-center justify-center">
           {desktopBefore.map(desktopLink)}
           <li>

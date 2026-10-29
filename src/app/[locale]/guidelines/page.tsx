@@ -11,14 +11,11 @@ export default async function GuidelinesPage({ params }: PageProps<"/[locale]/gu
   const t = dict.guidelines;
   return (
     <DocumentPage locale={locale} dict={dict} slug="guidelines" title={t.title} lead={t.lead}>
-      <section
-        aria-labelledby="legacy-guidelines"
-        className="border-line rounded-xl border bg-white p-6"
-      >
-        <h2 id="legacy-guidelines" className="text-navy-900 text-xl font-bold">
+      <section aria-labelledby="legacy-guidelines" className="rounded-2xl bg-white p-6">
+        <h2 id="legacy-guidelines" className="text-title text-navy-900">
           {t.legacyHeading}
         </h2>
-        <p className="text-muted mt-2">{t.legacyBody}</p>
+        <p className="text-body text-ink mt-2">{t.legacyBody}</p>
         <ExternalLink
           href={legacyGuidelinesUrl}
           newTabLabel={dict.common.opensInNewTab}
