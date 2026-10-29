@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102a43">
+  <meta name="description" content="Explore Nalanda English Medium Higher Secondary School, Kurud. Discover school information, facilities, admissions and parent resources.">
+  <title>Nalanda English Medium Higher Secondary School | Kurud</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        colors: {
+          ink: '#102A43', navy: '#153E5C', blue: '#246B8E',
+          sky: '#EAF4F8', gold: '#D5A64A', cream: '#FBF8F1',
+          muted: '#627487', leaf: '#2F6B55'
+        },
+        fontFamily: { sans: ['Inter','ui-sans-serif','system-ui'], display: ['Georgia','serif'] },
+        boxShadow: { soft: '0 20px 60px rgba(16,42,67,.10)' }
+      }}
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --ink:#102a43; --gold:#d5a64a; }
+    html { scroll-behavior:smooth; }
+    body { font-family:'DM Sans',sans-serif; }
+    h1,h2,h3,.display { font-family:'Playfair Display',Georgia,serif; }
+    .hero-bg {
+      background:
+       linear-gradient(90deg, rgba(10,35,55,.92) 0%, rgba(10,35,55,.76) 42%, rgba(10,35,55,.12) 100%),
+       url('https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=2200&q=88') center/cover;
+    }
+    .grid-pattern {
+      background-image: radial-gradient(rgba(213,166,74,.24) 1px, transparent 1px);
+      background-size: 18px 18px;
+    }
+    .nav-link { position:relative; }
+    .nav-link:after { content:""; position:absolute; height:2px; bottom:-7px; left:0; width:0; background:#d5a64a; transition:width .2s ease; }
+    .nav-link:hover:after,.nav-link:focus-visible:after { width:100%; }
+    .reveal { opacity:0; transform:translateY(18px); transition:opacity .65s ease,transform .65s ease; }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+    .focus-ring:focus-visible { outline:3px solid #d5a64a; outline-offset:3px; }
+    .image-zoom img { transition:transform .55s ease; }
+    .image-zoom:hover img { transform:scale(1.04); }
+    @media (prefers-reduced-motion:reduce) {
+      html { scroll-behavior:auto; }
+      *,*::before,*::after { animation-duration:.01ms!important; transition-duration:.01ms!important; }
+      .reveal { opacity:1; transform:none; }
+    }
+  </style>
+</head>
+<body class="bg-white text-ink antialiased">
+
+  <div id="languageGate" class="fixed inset-0 z-[100] flex items-center justify-center p-5 bg-ink/90 backdrop-blur-md" role="dialog" aria-modal="true" aria-labelledby="languageTitle">
+    <div class="w-full max-w-xl bg-white rounded-[2rem] p-7 sm:p-10 shadow-2xl text-center">
+      <div class="mx-auto w-16 h-16 rounded-2xl bg-ink text-gold flex items-center justify-center display text-3xl">N</div>
+      <p class="text-blue uppercase tracking-[.22em] text-xs font-bold mt-6">NALANDA • KURUD</p>
+      <h1 id="languageTitle" class="display text-3xl sm:text-4xl mt-3 text-ink">Choose your language</h1>
+      <p class="text-muted mt-3 leading-6">Please select a language to continue to the school website.</p>
+      <div class="grid sm:grid-cols-2 gap-4 mt-8">
+        <button type="button" id="chooseEnglish" class="rounded-2xl bg-ink text-white p-5 hover:bg-navy focus-ring transition text-left"><span class="block text-xs uppercase tracking-widest text-gold">English</span><span class="block display text-2xl mt-2">Continue in English</span><span class="block text-sm text-white/70 mt-2">School information in English</span></button>
+        <button type="button" id="chooseHindi" class="rounded-2xl bg-cream border border-[#eee7d8] text-ink p-5 hover:border-gold focus-ring transition text-left"><span class="block text-xs uppercase tracking-widest text-blue">हिन्दी</span><span class="block display text-2xl mt-2">हिन्दी में आगे बढ़ें</span><span class="block text-sm text-muted mt-2">विद्यालय की जानकारी हिन्दी में</span></button>
+      </div>
+      <p class="text-xs text-muted mt-6">You can change the language anytime from the top menu.</p>
+    </div>
+  </div>
+
+  <!-- DEMO NOTE: Verify all school-specific facts, images, contacts and disclosures with school management before production. -->
+  <div class="bg-ink text-white text-xs sm:text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-2 flex flex-wrap items-center justify-between gap-2">
+      <p class="text-white/80">Nalanda English Medium Higher Secondary School <span class="text-gold mx-1">•</span> Kurud, Bhilai</p>
+      <a href="#contact" class="text-gold font-semibold hover:text-white focus-ring rounded">Parent enquiries <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-100">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between gap-4" aria-label="Main navigation">
+      <a href="#home" class="flex items-center gap-3 focus-ring rounded" aria-label="Nalanda School home">
+        <img src="assets/nalanda-official-logo.png" alt="Nalanda English Medium High School official logo" class="w-16 sm:w-20 h-12 object-contain" />
+        <div class="leading-tight">
+          <div class="font-bold text-ink tracking-tight text-sm sm:text-base">NALANDA</div>
+          <div class="text-[10px] sm:text-xs text-muted uppercase tracking-[.15em] mt-1">English Medium Higher Secondary School</div>
+        </div>
+      </a>
+      <button id="languageToggle" type="button" class="shrink-0 inline-flex items-center gap-1.5 rounded-full border border-slate-300 bg-white px-2.5 py-1.5 text-xs font-bold text-ink hover:bg-sky focus-ring shadow-sm" aria-label="Switch website language"><span aria-hidden="true">文</span><span id="languageToggleLabel">हिन्दी</span></button>
+      <button id="menuBtn" class="md:hidden inline-flex items-center justify-center w-11 h-11 rounded-xl border border-slate-200 focus-ring" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open navigation menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <div class="hidden md:flex items-center gap-7 text-sm font-semibold text-slate-700">
+        <a class="nav-link focus-ring rounded" href="#about">Our School</a>
+        <a class="nav-link focus-ring rounded" href="#learning">Learning</a>
+        <a class="nav-link focus-ring rounded" href="#facilities">Facilities</a>
+        <div class="relative group">
+          <button type="button" class="nav-link focus-ring rounded inline-flex items-center gap-1" aria-haspopup="true">Rules &amp; Regulations <span aria-hidden="true">⌄</span></button>
+          <div class="absolute left-0 top-full hidden group-hover:block group-focus-within:block min-w-56 rounded-xl border border-slate-200 bg-white p-2 shadow-soft z-50">
+            <a class="block rounded-lg px-3 py-2 hover:bg-sky" href="#rules">Guidelines</a>
+            <a class="block rounded-lg px-3 py-2 hover:bg-sky" href="#resources">Academic Calendar</a>
+            <a class="block rounded-lg px-3 py-2 hover:bg-sky" href="#resources">Book List</a>
+            <a class="block rounded-lg px-3 py-2 hover:bg-sky" href="#resources">Teachers List</a>
+            <a class="block rounded-lg px-3 py-2 hover:bg-sky" href="#disclosures">Public Disclosure</a>
+          </div>
+        </div>
+        <a class="nav-link focus-ring rounded" href="#achievements">Achievements</a><a class="nav-link focus-ring rounded" href="#gallery">Gallery</a>
+        <a href="#contact" class="bg-gold hover:bg-[#c39537] text-ink px-5 py-3 rounded-xl font-bold transition focus-ring">Enquire now <span aria-hidden="true">↗</span></a>
+      </div>
+    </nav>
+    <div id="mobileMenu" class="hidden md:hidden border-t border-slate-100 bg-white px-4 py-3">
+      <div class="grid gap-1 text-sm font-semibold">
+        <a class="rounded-lg p-3 hover:bg-sky" href="#about">Our School</a>
+        <a class="rounded-lg p-3 hover:bg-sky" href="#learning">Learning</a>
+        <a class="rounded-lg p-3 hover:bg-sky" href="#facilities">Facilities</a>
+        <a class="rounded-lg p-3 hover:bg-sky" href="#rules">Rules &amp; Regulations / Guidelines</a>
+        <a class="rounded-lg p-3 hover:bg-sky" href="#resources">Academic Calendar</a>
+        <a class="rounded-lg p-3 hover:bg-sky" href="#resources">Book List</a>
+        <a class="rounded-lg p-3 hover:bg-sky" href="#resources">Teachers List</a>
+        <a class="rounded-lg p-3 hover:bg-sky" href="#disclosures">Mandatory Public Disclosure</a>
+        <a class="rounded-lg p-3 hover:bg-sky" href="#achievements">Achievements</a><a class="rounded-lg p-3 hover:bg-sky" href="#gallery">Gallery</a>
+        <a class="rounded-lg p-3 hover:bg-sky" href="#activities">Activities</a>
+        <a class="rounded-lg p-3 hover:bg-sky" href="#pta">PTA</a>
+        <button type="button" id="mobileLanguageToggle" class="text-left rounded-lg p-3 border border-slate-200 hover:bg-sky">हिन्दी / English</button>
+        <a class="rounded-lg p-3 bg-gold" href="#contact">Enquire now</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero-bg min-h-[640px] lg:min-h-[700px] flex items-center text-white relative overflow-hidden">
+      <div class="absolute inset-0 grid-pattern opacity-30 pointer-events-none"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 py-20 lg:py-28 w-full relative">
+        <div class="max-w-3xl">
+          <div class="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 backdrop-blur px-4 py-2 text-xs sm:text-sm text-white/90 mb-7">
+            <span class="w-2 h-2 rounded-full bg-gold"></span>
+            A school community in Kurud, Bhilai
+          </div>
+          <p class="uppercase tracking-[.24em] text-gold font-bold text-xs sm:text-sm mb-4">Learn with purpose. Grow with confidence.</p>
+          <h1 class="display text-4xl sm:text-5xl lg:text-7xl leading-[1.08] font-semibold max-w-3xl">Every learner deserves a place to <span class="text-gold italic">flourish.</span></h1>
+          <p class="mt-6 text-base sm:text-lg text-white/80 leading-relaxed max-w-xl">Welcome to Nalanda English Medium Higher Secondary School. Explore our school, learning environment, facilities and the information families need to take their next step.</p>
+          <div class="flex flex-col sm:flex-row gap-3 mt-9">
+            <a href="#contact" class="inline-flex items-center justify-center gap-3 rounded-xl bg-gold hover:bg-[#e4bb68] text-ink font-bold px-6 py-4 transition focus-ring">Explore admissions <span aria-hidden="true">→</span></a>
+            <a href="#about" class="inline-flex items-center justify-center gap-3 rounded-xl border border-white/40 hover:bg-white/10 px-6 py-4 font-semibold transition focus-ring">Discover our school <span aria-hidden="true">↓</span></a>
+          </div>
+          <p class="mt-8 text-xs text-white/60">School details and admissions information should be confirmed by the school before publication.</p>
+        </div>
+      </div>
+      <div class="hidden lg:block absolute right-[7%] bottom-10 w-56 border border-white/30 bg-white/10 backdrop-blur rounded-2xl p-5">
+        <div class="text-gold text-3xl display">01</div>
+        <p class="font-semibold mt-2">A clear path for parents</p>
+        <p class="text-xs text-white/70 mt-1 leading-relaxed">School information, facilities and enquiry options in one place.</p>
+      </div>
+    </section>
+
+    <section class="bg-cream border-b border-[#eee7d8]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 py-6 grid sm:grid-cols-3 gap-5">
+        <div class="flex gap-3 items-center"><div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-blue shadow-sm">⌖</div><div><p class="text-xs uppercase tracking-widest text-muted">Location</p><p class="font-bold mt-1">Kurud, Bhilai</p></div></div>
+        <div class="flex gap-3 items-center"><div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-blue shadow-sm">▤</div><div><p class="text-xs uppercase tracking-widest text-muted">School information</p><p class="font-bold mt-1">Academics and facilities</p></div></div>
+        <div class="flex gap-3 items-center"><div class="w-10 h-10 rounded-xl bg-white flex items-center justify-center text-blue shadow-sm">↗</div><div><p class="text-xs uppercase tracking-widest text-muted">For families</p><p class="font-bold mt-1">Admissions and enquiries</p></div></div>
+      </div>
+    </section>
+
+    <section id="about" class="py-20 lg:py-28">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        <div class="reveal">
+          <p class="text-blue uppercase tracking-[.22em] text-xs font-bold">Welcome to Nalanda</p>
+          <h2 class="display text-3xl sm:text-4xl lg:text-5xl mt-4 leading-tight">A school website designed around what families need to know.</h2>
+          <p class="text-muted mt-6 leading-7">Nalanda English Medium Higher Secondary School's website brings together school information, facilities, courses, admission details and a gallery. This refreshed concept gives those essentials a clearer structure and a more welcoming presentation.</p>
+          <p class="text-muted mt-4 leading-7">Use this space to share the school's story, educational approach and community priorities in the school's own approved words.</p>
+          <a href="#learning" class="inline-flex items-center gap-3 mt-7 font-bold text-blue hover:text-ink focus-ring rounded">Explore learning <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="relative reveal">
+          <div class="absolute -top-5 -left-5 w-28 h-28 bg-cream rounded-3xl -z-10"></div>
+          <div class="rounded-[2rem] overflow-hidden shadow-soft image-zoom">
+            <img class="w-full h-[390px] sm:h-[500px] object-cover" src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=85" alt="Students learning together in a classroom" loading="lazy">
+          </div>
+          <div class="absolute -bottom-5 -right-3 sm:right-[-18px] bg-ink text-white p-5 sm:p-6 rounded-2xl max-w-[240px] shadow-soft">
+            <p class="text-gold text-xs uppercase tracking-[.2em] font-bold">The Nalanda experience</p>
+            <p class="display text-xl mt-2">Learning, belonging, becoming.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="learning" class="py-20 bg-sky/70">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="max-w-2xl mx-auto text-center reveal">
+          <p class="text-blue uppercase tracking-[.22em] text-xs font-bold">Explore the school</p>
+          <h2 class="display text-3xl sm:text-4xl mt-4">The information that matters, made easier to find.</h2>
+          <p class="text-muted mt-4 leading-7">A clearer way to explore the school's learning offer and practical information. Confirm class-wise details with the school before launch.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-5 mt-12">
+          <article class="bg-white rounded-2xl p-7 border border-white shadow-sm hover:shadow-soft transition reveal">
+            <div class="w-12 h-12 rounded-2xl bg-cream text-blue flex items-center justify-center text-2xl">⌘</div>
+            <h3 class="display text-2xl mt-5">Courses & academics</h3>
+            <p class="text-muted leading-6 mt-3 text-sm">Help families understand the classes and academic pathways offered by the school.</p>
+            <a href="#contact" class="inline-flex mt-5 text-blue font-bold text-sm focus-ring rounded">Ask about classes <span class="ml-2">→</span></a>
+          </article>
+          <article class="bg-white rounded-2xl p-7 border border-white shadow-sm hover:shadow-soft transition reveal">
+            <div class="w-12 h-12 rounded-2xl bg-cream text-blue flex items-center justify-center text-2xl">✳</div>
+            <h3 class="display text-2xl mt-5">School facilities</h3>
+            <p class="text-muted leading-6 mt-3 text-sm">Explore the facilities and learning spaces that support the school experience.</p>
+            <a href="#facilities" class="inline-flex mt-5 text-blue font-bold text-sm focus-ring rounded">View facilities <span class="ml-2">→</span></a>
+          </article>
+          <article class="bg-white rounded-2xl p-7 border border-white shadow-sm hover:shadow-soft transition reveal">
+            <div class="w-12 h-12 rounded-2xl bg-cream text-blue flex items-center justify-center text-2xl">↗</div>
+            <h3 class="display text-2xl mt-5">Admissions</h3>
+            <p class="text-muted leading-6 mt-3 text-sm">Give parents a simple route to ask questions and understand the admission process.</p>
+            <a href="#contact" class="inline-flex mt-5 text-blue font-bold text-sm focus-ring rounded">Start an enquiry <span class="ml-2">→</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="facilities" class="py-20 lg:py-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-5 mb-10 reveal">
+          <div class="max-w-2xl">
+            <p class="text-blue uppercase tracking-[.22em] text-xs font-bold">The school environment</p>
+            <h2 class="display text-3xl sm:text-4xl mt-4">Spaces that support the school day.</h2>
+          </div>
+          <p class="text-muted max-w-md leading-6 text-sm">The current site highlights facilities and school information. Replace these illustrative images with approved photographs of Nalanda's actual campus and facilities.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-5">
+          <article class="image-zoom rounded-2xl overflow-hidden relative min-h-[340px] reveal">
+            <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=900&q=85" alt="Illustrative school building" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/15 to-transparent"></div>
+            <div class="absolute bottom-0 p-6 text-white"><p class="text-gold text-xs font-bold uppercase tracking-widest">Campus</p><h3 class="display text-2xl mt-2">School spaces</h3><p class="text-white/75 text-sm mt-2">Replace with verified campus details.</p></div>
+          </article>
+          <article class="image-zoom rounded-2xl overflow-hidden relative min-h-[340px] reveal">
+            <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=900&q=85" alt="Illustrative classroom learning" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/15 to-transparent"></div>
+            <div class="absolute bottom-0 p-6 text-white"><p class="text-gold text-xs font-bold uppercase tracking-widest">Learning</p><h3 class="display text-2xl mt-2">Classroom experience</h3><p class="text-white/75 text-sm mt-2">Add approved information about teaching and learning.</p></div>
+          </article>
+          <article class="image-zoom rounded-2xl overflow-hidden relative min-h-[340px] reveal">
+            <img src="https://images.unsplash.com/photo-1529390079861-591de354faf5?auto=format&fit=crop&w=900&q=85" alt="Illustrative students participating in an activity" class="absolute inset-0 w-full h-full object-cover" loading="lazy">
+            <div class="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/15 to-transparent"></div>
+            <div class="absolute bottom-0 p-6 text-white"><p class="text-gold text-xs font-bold uppercase tracking-widest">Community</p><h3 class="display text-2xl mt-2">Student life</h3><p class="text-white/75 text-sm mt-2">Use real school activities and approved photographs.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-ink text-white py-20 relative overflow-hidden">
+      <div class="absolute -right-20 -top-20 w-80 h-80 border border-white/10 rounded-full"></div>
+      <div class="absolute -right-4 -top-4 w-48 h-48 border border-gold/30 rounded-full"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 relative grid lg:grid-cols-[1.2fr_.8fr] gap-12 items-center">
+        <div class="reveal">
+          <p class="text-gold uppercase tracking-[.22em] text-xs font-bold">For parents and guardians</p>
+          <h2 class="display text-3xl sm:text-4xl lg:text-5xl mt-4 leading-tight">Your next step should feel simple.</h2>
+          <p class="text-white/70 mt-5 max-w-xl leading-7">Whether you're exploring the school, asking about classes or looking for admission information, use the enquiry section to connect with the school team.</p>
+          <a href="#contact" class="inline-flex mt-7 items-center gap-3 bg-gold hover:bg-[#e4bb68] text-ink font-bold rounded-xl px-6 py-4 focus-ring">Contact the school <span>→</span></a>
+        </div>
+        <div class="grid grid-cols-2 gap-3 reveal">
+          <div class="border border-white/15 rounded-2xl p-5 bg-white/5"><span class="text-gold text-2xl">01</span><p class="font-semibold mt-4">Explore</p><p class="text-white/60 text-sm mt-2">Learn about the school.</p></div>
+          <div class="border border-white/15 rounded-2xl p-5 bg-white/5"><span class="text-gold text-2xl">02</span><p class="font-semibold mt-4">Understand</p><p class="text-white/60 text-sm mt-2">Review relevant details.</p></div>
+          <div class="border border-white/15 rounded-2xl p-5 bg-white/5"><span class="text-gold text-2xl">03</span><p class="font-semibold mt-4">Ask</p><p class="text-white/60 text-sm mt-2">Send your question.</p></div>
+          <div class="border border-white/15 rounded-2xl p-5 bg-white/5"><span class="text-gold text-2xl">04</span><p class="font-semibold mt-4">Connect</p><p class="text-white/60 text-sm mt-2">Follow up with the school.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="achievements" class="py-16 sm:py-20 bg-[#fbf8ef] border-y border-[#efe5cc]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="grid lg:grid-cols-[.85fr_1.15fr] gap-10 items-center">
+          <div>
+            <p class="text-blue uppercase tracking-[.22em] text-xs font-bold" data-i18n="School achievements">School achievements</p>
+            <h2 class="display text-3xl sm:text-5xl mt-3 leading-tight" data-i18n="Pride, discipline and achievement.">Pride, discipline and achievement.</h2>
+            <p class="text-muted mt-5 leading-7" data-i18n="Celebrating our students' performance at the CBSE Far East Zone Judo Championship 2026.">Celebrating our students' performance at the CBSE Far East Zone Judo Championship 2026.</p>
+            <a href="#gallery" class="inline-flex mt-6 bg-ink text-white px-5 py-3 rounded-xl font-semibold hover:bg-blue focus-ring" data-i18n="Explore school life">Explore school life</a>
+          </div>
+          <a href="assets/judo-achievers-2026.png" target="_blank" rel="noopener" class="block rounded-2xl overflow-hidden shadow-soft border border-[#e6d7b2] bg-white focus-ring">
+            <img src="assets/judo-achievers-2026.png" alt="Nalanda school achievers poster celebrating students at the CBSE Far East Zone Judo Championship 2026" class="w-full h-auto" loading="lazy">
+          </a>
+        </div>
+      </div>
+    </section>
+    <section id="rules" class="py-16 bg-white border-y border-slate-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <p class="text-blue uppercase tracking-[.22em] text-xs font-bold">Rules &amp; Regulations</p>
+        <h2 class="display text-3xl sm:text-4xl mt-3">Guidelines and school resources</h2>
+        <p class="text-muted mt-4 max-w-3xl leading-7">This section is a navigation-ready demo for the guideline and academic-resource pages shown on the original school website. Replace each placeholder with the school's current approved document or page before launch.</p>
+        <div id="resources" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
+          <a href="#contact" class="rounded-2xl border border-slate-200 p-5 hover:border-blue hover:bg-sky/40"><span class="text-xs uppercase tracking-widest text-muted">Resource</span><h3 class="font-bold mt-2">Academic Calendar</h3><p class="text-sm text-muted mt-2">Current academic dates and events.</p></a>
+          <a href="#contact" class="rounded-2xl border border-slate-200 p-5 hover:border-blue hover:bg-sky/40"><span class="text-xs uppercase tracking-widest text-muted">Resource</span><h3 class="font-bold mt-2">Book List</h3><p class="text-sm text-muted mt-2">Class-wise book list to be verified.</p></a>
+          <a href="#contact" class="rounded-2xl border border-slate-200 p-5 hover:border-blue hover:bg-sky/40"><span class="text-xs uppercase tracking-widest text-muted">Resource</span><h3 class="font-bold mt-2">Teachers List</h3><p class="text-sm text-muted mt-2">Approved staff information.</p></a>
+          <a href="#disclosures" class="rounded-2xl border border-slate-200 p-5 hover:border-blue hover:bg-sky/40"><span class="text-xs uppercase tracking-widest text-muted">Resource</span><h3 class="font-bold mt-2">Public Disclosure</h3><p class="text-sm text-muted mt-2">Mandatory public disclosure documents.</p></a>
+        </div>
+      </div>
+    </section>
+    <section id="activities" class="sr-only" aria-label="Activities"></section>
+    <section id="pta" class="sr-only" aria-label="Parent Teacher Association"></section>
+    <section id="disclosures" class="py-20 bg-cream">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="max-w-2xl reveal">
+          <p class="text-blue uppercase tracking-[.22em] text-xs font-bold">Information & transparency</p>
+          <h2 class="display text-3xl sm:text-4xl mt-4">Important documents, clearly organized.</h2>
+          <p class="text-muted mt-4 leading-7">The existing site includes a public disclosure area. In the final build, this section should link to the school's current, approved documents.</p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-4 mt-9">
+          <div class="bg-white border border-[#eee7d8] rounded-2xl p-6 flex gap-4"><div class="text-blue text-2xl">▤</div><div><h3 class="font-bold">Mandatory public disclosure</h3><p class="text-muted text-sm mt-2">Add the school's current disclosure documents and verified links.</p><span class="text-xs text-amber-700 font-semibold mt-3 inline-block">Document links to be verified</span></div></div>
+          <div class="bg-white border border-[#eee7d8] rounded-2xl p-6 flex gap-4"><div class="text-blue text-2xl">⌑</div><div><h3 class="font-bold">School information</h3><p class="text-muted text-sm mt-2">Provide approved school details and relevant official information.</p><span class="text-xs text-amber-700 font-semibold mt-3 inline-block">Content to be verified</span></div></div>
+          <div class="bg-white border border-[#eee7d8] rounded-2xl p-6 flex gap-4"><div class="text-blue text-2xl">⇩</div><div><h3 class="font-bold">Downloads & resources</h3><p class="text-muted text-sm mt-2">Make current calendars, policies and forms easy to locate.</p><span class="text-xs text-amber-700 font-semibold mt-3 inline-block">Files to be supplied</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="maps-photo-links" class="py-10 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 rounded-2xl border border-slate-200 p-5 sm:p-6">
+          <div><h2 class="font-bold text-lg" data-i18n="More school photos">More school photos</h2><p class="text-sm text-muted mt-1" data-i18n="Open the school photo collections shared on Google Maps.">Open the school photo collections shared on Google Maps.</p></div>
+          <div class="flex flex-wrap gap-3">
+            <a class="rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-semibold hover:bg-sky focus-ring" href="https://maps.app.goo.gl/eJEsfWcpXfiiPWdN7" target="_blank" rel="noopener" data-i18n="Google Maps photos 1">Google Maps photos 1 ↗</a>
+            <a class="rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-semibold hover:bg-sky focus-ring" href="https://maps.app.goo.gl/jykVTkjyv2B3KHsK6" target="_blank" rel="noopener" data-i18n="Google Maps photos 2">Google Maps photos 2 ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="gallery" class="py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
+        <div class="flex flex-col sm:flex-row justify-between sm:items-end gap-4 reveal">
+          <div><p class="text-blue uppercase tracking-[.22em] text-xs font-bold">A glimpse of school life</p><h2 class="display text-3xl sm:text-4xl mt-4">Moments that make a community.</h2></div>
+          <p class="text-muted text-sm max-w-sm leading-6">Demo imagery only. Replace with approved photographs from the school's own gallery.</p>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 mt-9">
+          <div class="image-zoom rounded-2xl overflow-hidden col-span-2 row-span-2 min-h-[260px] reveal"><img class="w-full h-full min-h-[260px] object-cover" src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1000&q=85" alt="Illustrative classroom scene" loading="lazy"></div>
+          <div class="image-zoom rounded-2xl overflow-hidden min-h-[180px] reveal"><img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=700&q=85" alt="Illustrative student learning" loading="lazy"></div>
+          <div class="image-zoom rounded-2xl overflow-hidden min-h-[180px] reveal"><img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=700&q=85" alt="Illustrative classroom activity" loading="lazy"></div>
+          <div class="image-zoom rounded-2xl overflow-hidden min-h-[180px] reveal"><img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=700&q=85" alt="Illustrative teacher and students" loading="lazy"></div>
+          <div class="image-zoom rounded-2xl overflow-hidden min-h-[180px] reveal"><img class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=700&q=85" alt="Illustrative school exterior" loading="lazy"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-sky/70">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-2 gap-12">
+        <div class="reveal">
+          <p class="text-blue uppercase tracking-[.22em] text-xs font-bold">Get in touch</p>
+          <h2 class="display text-3xl sm:text-4xl mt-4">Let's help you find the information you need.</h2>
+          <p class="text-muted mt-5 leading-7 max-w-lg">For admission enquiries, school information or a visit, contact the school through its verified official channels. The details below should be replaced with the exact current information from the official website or school management before launch.</p>
+          <div class="mt-8 space-y-4">
+            <div class="bg-white rounded-2xl p-5 flex gap-4"><div class="w-11 h-11 rounded-xl bg-cream flex items-center justify-center text-blue">⌖</div><div><p class="text-xs uppercase tracking-widest text-muted">Address</p><p class="font-semibold mt-1">Kurud, Bhilai, Chhattisgarh</p><p class="text-xs text-amber-700 mt-2">Confirm full postal address before launch.</p></div></div>
+            <div class="bg-white rounded-2xl p-5 flex gap-4"><div class="w-11 h-11 rounded-xl bg-cream flex items-center justify-center text-blue">☎</div><div><p class="text-xs uppercase tracking-widest text-muted">Phone & email</p><p class="font-semibold mt-1">Use the school's verified contact details</p><p class="text-xs text-amber-700 mt-2">Do not publish unverified numbers or email addresses.</p></div></div>
+          </div>
+        </div>
+        <div class="bg-white rounded-3xl shadow-soft p-6 sm:p-8 reveal">
+          <h3 class="display text-2xl">Send an enquiry</h3>
+          <p class="text-muted text-sm mt-2">Demo form only. It does not send or store information.</p>
+          <form id="enquiryForm" class="mt-6 space-y-4">
+            <div><label for="name" class="block text-sm font-semibold mb-2">Parent / guardian name</label><input id="name" name="name" required autocomplete="name" class="w-full rounded-xl border border-slate-200 px-4 py-3 focus-ring" placeholder="Your name"></div>
+            <div><label for="phone" class="block text-sm font-semibold mb-2">Phone number</label><input id="phone" name="phone" required inputmode="tel" autocomplete="tel" class="w-full rounded-xl border border-slate-200 px-4 py-3 focus-ring" placeholder="Your contact number"></div>
+            <div><label for="interest" class="block text-sm font-semibold mb-2">What would you like to know?</label><select id="interest" name="interest" class="w-full rounded-xl border border-slate-200 px-4 py-3 bg-white focus-ring"><option>Admission enquiry</option><option>Classes and academics</option><option>School facilities</option><option>Public disclosure</option><option>Other question</option></select></div>
+            <div><label for="message" class="block text-sm font-semibold mb-2">Message <span class="text-muted font-normal">(optional)</span></label><textarea id="message" name="message" rows="3" class="w-full rounded-xl border border-slate-200 px-4 py-3 focus-ring" placeholder="How can the school help?"></textarea></div>
+            <button class="w-full rounded-xl bg-ink hover:bg-navy text-white font-bold px-5 py-4 transition focus-ring" type="submit">Preview enquiry submission <span aria-hidden="true">→</span></button>
+            <p id="formNotice" class="hidden rounded-xl bg-cream text-ink p-4 text-sm" role="status"></p>
+            <p class="text-xs text-muted leading-5">Before launch, connect this form to an approved, secure form handler and publish a privacy notice. Avoid collecting more student or family information than necessary.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-[#0B2033] text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12">
+      <div class="grid md:grid-cols-[1.3fr_.7fr_.7fr] gap-10">
+        <div>
+          <div class="flex items-center gap-3"><img src="assets/nalanda-official-logo.png" alt="Nalanda School official logo" class="w-24 h-12 object-contain bg-white rounded-lg p-1"><div><p class="font-bold">NALANDA</p><p class="text-xs text-white/55 mt-1">English Medium Higher Secondary School</p></div></div>
+          <p class="text-sm text-white/60 mt-5 max-w-sm leading-6">A refreshed digital concept for sharing school information, supporting parent enquiries and making key resources easier to find.</p>
+        </div>
+        <div><h3 class="font-bold">Explore</h3><div class="grid gap-3 mt-4 text-sm text-white/65">
+          <a class="hover:text-gold" href="#about">Our school</a><a class="hover:text-gold" href="#learning">Learning</a><a class="hover:text-gold" href="#facilities">Facilities</a><a class="hover:text-gold" href="#rules">Rules &amp; Regulations</a><a class="hover:text-gold" href="#achievements">Achievements</a><a class="hover:text-gold" href="#gallery">Gallery</a><a class="hover:text-gold" href="#activities">Activities</a><a class="hover:text-gold" href="#pta">PTA</a>
+        </div></div>
+        <div><h3 class="font-bold">Information</h3><div class="grid gap-3 mt-4 text-sm text-white/65">
+          <a class="hover:text-gold" href="#rules">Guidelines</a><a class="hover:text-gold" href="#resources">Academic Calendar</a><a class="hover:text-gold" href="#resources">Book List</a><a class="hover:text-gold" href="#resources">Teachers List</a><a class="hover:text-gold" href="#disclosures">Mandatory Public Disclosure</a><a class="hover:text-gold" href="#contact">Contact</a><a class="hover:text-gold" href="#contact">Admissions enquiry</a>
+        </div></div>
+      </div>
+      <div class="border-t border-white/10 mt-10 pt-5 flex flex-col sm:flex-row justify-between gap-3 text-xs text-white/45">
+        <p>© <span id="year"></span> Nalanda English Medium Higher Secondary School. Demo concept.</p>
+        <p>Demo imagery and placeholder contact details must be verified before publication.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const translations = {
+      "Rules & Regulations": "नियम और विनियम",
+      "Explore": "देखें", "Information": "जानकारी", "Our school": "हमारा विद्यालय",
+      "Learning": "शिक्षा", "Facilities": "सुविधाएँ", "Contact": "संपर्क",
+      "Admissions enquiry": "प्रवेश संबंधी पूछताछ", "Public disclosure": "सार्वजनिक जानकारी",
+ "Guidelines": "दिशा-निर्देश",
+      "Academic Calendar": "शैक्षणिक कैलेंडर", "Book List": "पुस्तकों की सूची",
+      "Teachers List": "शिक्षकों की सूची", "Public Disclosure": "सार्वजनिक प्रकटीकरण",
+      "Rules & Regulations / Guidelines": "नियम और विनियम / दिशा-निर्देश",
+      "Mandatory Public Disclosure": "अनिवार्य सार्वजनिक प्रकटीकरण",
+      "Activities": "गतिविधियाँ", "PTA": "अभिभावक-शिक्षक संघ",
+      "Guidelines and school resources": "दिशा-निर्देश और विद्यालय संसाधन",
+      "This section is a navigation-ready demo for the guideline and academic-resource pages shown on the original school website. Replace each placeholder with the school's current approved document or page before launch.": "यह अनुभाग मूल विद्यालय वेबसाइट पर दिखाए गए दिशा-निर्देश और शैक्षणिक संसाधन पृष्ठों का नेविगेशन डेमो है। वेबसाइट शुरू करने से पहले प्रत्येक अस्थायी लिंक को विद्यालय के वर्तमान स्वीकृत दस्तावेज़ या पृष्ठ से बदलें।",
+      "Resource": "संसाधन", "Current academic dates and events.": "वर्तमान शैक्षणिक तिथियाँ और कार्यक्रम।",
+      "Class-wise book list to be verified.": "कक्षा के अनुसार पुस्तकों की सूची की पुष्टि की जानी है।",
+      "Approved staff information.": "स्वीकृत कर्मचारी जानकारी।",
+      "Mandatory public disclosure documents.": "अनिवार्य सार्वजनिक प्रकटीकरण दस्तावेज़।",
+      "हिन्दी / English": "हिन्दी / अंग्रेज़ी",
+
+      "Nalanda English Medium Higher Secondary School": "नालंदा इंग्लिश मीडियम हायर सेकेंडरी स्कूल",
+      "Parent enquiries": "अभिभावक पूछताछ", "Our School": "हमारा विद्यालय", "Learning": "शिक्षा", "Facilities": "सुविधाएँ", "Disclosures": "महत्वपूर्ण दस्तावेज़", "Gallery": "गैलरी", "Enquire now": "अभी पूछताछ करें",
+      "Open navigation menu": "नेविगेशन मेनू खोलें", "Close navigation menu": "नेविगेशन मेनू बंद करें", "Public disclosures": "सार्वजनिक जानकारी", "A school community in Kurud, Bhilai": "कुरुद, भिलाई का एक विद्यालय समुदाय",
+      "Learn with purpose. Grow with confidence.": "उद्देश्य के साथ सीखें। आत्मविश्वास के साथ आगे बढ़ें।", "Every learner deserves a place to ": "हर विद्यार्थी को ऐसा स्थान मिलना चाहिए जहाँ वह ", "flourish.": "निखर सके।",
+      "Welcome to Nalanda English Medium Higher Secondary School. Explore our school, learning environment, facilities and the information families need to take their next step.": "नालंदा इंग्लिश मीडियम हायर सेकेंडरी स्कूल में आपका स्वागत है। हमारे विद्यालय, सीखने के वातावरण, सुविधाओं और परिवारों के लिए आवश्यक जानकारी को जानें।",
+      "Explore admissions": "प्रवेश की जानकारी लें", "Discover our school": "हमारे विद्यालय को जानें", "School details and admissions information should be confirmed by the school before publication.": "प्रकाशित करने से पहले विद्यालय के विवरण और प्रवेश संबंधी जानकारी की पुष्टि आवश्यक है।",
+      "A clear path for parents": "अभिभावकों के लिए आसान राह", "School information, facilities and enquiry options in one place.": "विद्यालय की जानकारी, सुविधाएँ और पूछताछ के विकल्प एक ही जगह।", "Location": "स्थान", "Kurud, Bhilai": "कुरुद, भिलाई", "School information": "विद्यालय की जानकारी", "Academics and facilities": "शिक्षा और सुविधाएँ", "For families": "परिवारों के लिए", "Admissions and enquiries": "प्रवेश और पूछताछ",
+      "Welcome to Nalanda": "नालंदा में आपका स्वागत है", "A school website designed around what families need to know.": "परिवारों की ज़रूरतों को ध्यान में रखकर बनाई गई विद्यालय की वेबसाइट।", "Nalanda English Medium Higher Secondary School's website brings together school information, facilities, courses, admission details and a gallery. This refreshed concept gives those essentials a clearer structure and a more welcoming presentation.": "नालंदा इंग्लिश मीडियम हायर सेकेंडरी स्कूल की वेबसाइट पर विद्यालय की जानकारी, सुविधाएँ, पाठ्यक्रम, प्रवेश विवरण और गैलरी एक जगह उपलब्ध हैं। यह नया डिज़ाइन इन सभी जानकारियों को अधिक स्पष्ट और सहज रूप में प्रस्तुत करता है।",
+      "Use this space to share the school's story, educational approach and community priorities in the school's own approved words.": "इस स्थान पर विद्यालय की कहानी, शिक्षण दृष्टिकोण और समुदाय से जुड़ी प्राथमिकताएँ विद्यालय द्वारा स्वीकृत शब्दों में साझा करें।", "Explore learning": "शिक्षा के बारे में जानें", "The Nalanda experience": "नालंदा का अनुभव", "Learning, belonging, becoming.": "सीखना, जुड़ना और आगे बढ़ना।",
+      "Explore the school": "विद्यालय को जानें", "The information that matters, made easier to find.": "ज़रूरी जानकारी अब आसानी से उपलब्ध।", "A clearer way to explore the school's learning offer and practical information. Confirm class-wise details with the school before launch.": "विद्यालय की शैक्षणिक जानकारी और ज़रूरी विवरण जानने का अधिक स्पष्ट तरीका। वेबसाइट शुरू करने से पहले कक्षा-वार जानकारी की पुष्टि करें।",
+      "Courses & academics": "पाठ्यक्रम और शिक्षा", "Help families understand the classes and academic pathways offered by the school.": "परिवारों को विद्यालय में उपलब्ध कक्षाओं और शैक्षणिक विकल्पों की जानकारी दें।", "Ask about classes": "कक्षाओं के बारे में पूछें", "School facilities": "विद्यालय की सुविधाएँ", "Explore the facilities and learning spaces that support the school experience.": "विद्यालय के अनुभव को बेहतर बनाने वाली सुविधाओं और सीखने के स्थानों को जानें।", "View facilities": "सुविधाएँ देखें", "Admissions": "प्रवेश", "Give parents a simple route to ask questions and understand the admission process.": "अभिभावकों को प्रश्न पूछने और प्रवेश प्रक्रिया समझने का आसान तरीका दें।", "Start an enquiry": "पूछताछ शुरू करें",
+      "The school environment": "विद्यालय का वातावरण", "Spaces that support the school day.": "विद्यालय के हर दिन को बेहतर बनाने वाले स्थान।", "The current site highlights facilities and school information. Replace these illustrative images with approved photographs of Nalanda's actual campus and facilities.": "मौजूदा वेबसाइट पर सुविधाओं और विद्यालय की जानकारी को प्रमुखता दी गई है। इन उदाहरणात्मक तस्वीरों की जगह नालंदा परिसर और सुविधाओं की स्वीकृत तस्वीरें लगाएँ।", "Campus": "परिसर", "School spaces": "विद्यालय के स्थान", "Replace with verified campus details.": "पुष्टि किए गए परिसर विवरण जोड़ें।", "Classroom experience": "कक्षा का अनुभव", "Add approved information about teaching and learning.": "शिक्षण और सीखने की स्वीकृत जानकारी जोड़ें।", "Community": "समुदाय", "Student life": "विद्यार्थी जीवन", "Use real school activities and approved photographs.": "विद्यालय की वास्तविक गतिविधियाँ और स्वीकृत तस्वीरें उपयोग करें।",
+      "For parents and guardians": "माता-पिता और अभिभावकों के लिए", "Your next step should feel simple.": "आपका अगला कदम आसान होना चाहिए।", "Whether you're exploring the school, asking about classes or looking for admission information, use the enquiry section to connect with the school team.": "चाहे आप विद्यालय के बारे में जानना चाहते हों, कक्षाओं के बारे में पूछना हो या प्रवेश की जानकारी चाहिए, विद्यालय की टीम से जुड़ने के लिए पूछताछ अनुभाग का उपयोग करें।", "Contact the school": "विद्यालय से संपर्क करें", "Explore": "जानें", "Understand": "समझें", "Ask": "पूछें", "Connect": "जुड़ें", "Learn about the school.": "विद्यालय के बारे में जानें।", "Review relevant details.": "ज़रूरी विवरण देखें।", "Send your question.": "अपना प्रश्न भेजें।", "Follow up with the school.": "विद्यालय से आगे संपर्क करें।",
+      "Information & transparency": "जानकारी और पारदर्शिता", "Important documents, clearly organized.": "महत्वपूर्ण दस्तावेज़, व्यवस्थित रूप में।", "The existing site includes a public disclosure area. In the final build, this section should link to the school's current, approved documents.": "मौजूदा वेबसाइट पर सार्वजनिक जानकारी का अनुभाग है। अंतिम वेबसाइट में यहाँ विद्यालय के वर्तमान और स्वीकृत दस्तावेज़ों के लिंक होने चाहिए।", "Mandatory public disclosure": "अनिवार्य सार्वजनिक जानकारी", "Add the school's current disclosure documents and verified links.": "विद्यालय के वर्तमान सार्वजनिक दस्तावेज़ और सत्यापित लिंक जोड़ें।", "Document links to be verified": "दस्तावेज़ लिंक की पुष्टि बाकी", "Provide approved school details and relevant official information.": "विद्यालय के स्वीकृत विवरण और संबंधित आधिकारिक जानकारी दें।", "Content to be verified": "जानकारी की पुष्टि बाकी", "Downloads & resources": "डाउनलोड और संसाधन", "Make current calendars, policies and forms easy to locate.": "वर्तमान कैलेंडर, नीतियाँ और फ़ॉर्म आसानी से उपलब्ध कराएँ।", "Files to be supplied": "फ़ाइलें उपलब्ध करानी हैं",
+      "A glimpse of school life": "विद्यालय जीवन की एक झलक", "Moments that make a community.": "वे पल जो समुदाय बनाते हैं।", "Demo imagery only. Replace with approved photographs from the school's own gallery.": "केवल उदाहरणात्मक तस्वीरें। इन्हें विद्यालय की गैलरी की स्वीकृत तस्वीरों से बदलें।",
+      "Get in touch": "संपर्क करें", "Let's help you find the information you need.": "आपको ज़रूरी जानकारी पाने में मदद करें।", "For admission enquiries, school information or a visit, contact the school through its verified official channels. The details below should be replaced with the exact current information from the official website or school management before launch.": "प्रवेश संबंधी पूछताछ, विद्यालय की जानकारी या भ्रमण के लिए सत्यापित आधिकारिक माध्यमों से संपर्क करें। वेबसाइट शुरू करने से पहले नीचे दिए विवरणों को आधिकारिक वेबसाइट या विद्यालय प्रबंधन से मिली वर्तमान जानकारी से बदलें।", "Address": "पता", "Confirm full postal address before launch.": "शुरू करने से पहले पूरा डाक पता सत्यापित करें।", "Phone & email": "फ़ोन और ईमेल", "Use the school's verified contact details": "विद्यालय के सत्यापित संपर्क विवरण उपयोग करें", "Do not publish unverified numbers or email addresses.": "बिना पुष्टि किए फ़ोन नंबर या ईमेल प्रकाशित न करें।", "Send an enquiry": "पूछताछ भेजें", "Demo form only. It does not send or store information.": "यह केवल डेमो फ़ॉर्म है। यह जानकारी भेजता या सहेजता नहीं है।", "Parent / guardian name": "माता-पिता / अभिभावक का नाम", "Your name": "आपका नाम", "Phone number": "फ़ोन नंबर", "Your contact number": "आपका संपर्क नंबर", "What would you like to know?": "आप क्या जानना चाहते हैं?", "Admission enquiry": "प्रवेश संबंधी पूछताछ", "Classes and academics": "कक्षाएँ और शिक्षा", "School facilities": "विद्यालय की सुविधाएँ", "Public disclosure": "सार्वजनिक जानकारी", "Other question": "अन्य प्रश्न", "Message ": "संदेश ", "(optional)": "(वैकल्पिक)", "How can the school help?": "विद्यालय आपकी कैसे मदद कर सकता है?", "Preview enquiry submission": "पूछताछ भेजने का पूर्वावलोकन", "Before launch, connect this form to an approved, secure form handler and publish a privacy notice. Avoid collecting more student or family information than necessary.": "शुरू करने से पहले इस फ़ॉर्म को स्वीकृत और सुरक्षित सिस्टम से जोड़ें और गोपनीयता सूचना प्रकाशित करें। आवश्यकता से अधिक विद्यार्थी या परिवार की जानकारी न लें।",
+      "Information": "जानकारी", "A refreshed digital concept for sharing school information, supporting parent enquiries and making key resources easier to find.": "विद्यालय की जानकारी साझा करने, अभिभावकों की पूछताछ में मदद करने और ज़रूरी संसाधन आसानी से उपलब्ध कराने की नई डिजिटल अवधारणा।", "Our school": "हमारा विद्यालय", "Public disclosure": "सार्वजनिक जानकारी", "Contact": "संपर्क", "Admissions enquiry": "प्रवेश संबंधी पूछताछ", "Demo concept.": "डेमो अवधारणा।", "Demo imagery and placeholder contact details must be verified before publication.": "प्रकाशित करने से पहले उदाहरणात्मक तस्वीरों और अस्थायी संपर्क विवरणों की पुष्टि करें।",
+      "Kurud, Bhilai, Chhattisgarh": "कुरुद, भिलाई, छत्तीसगढ़", "Use the school's verified contact details": "विद्यालय के सत्यापित संपर्क विवरण उपयोग करें",
+      "NALANDA": "नालंदा", "English Medium Higher Secondary School": "अंग्रेज़ी माध्यम उच्चतर माध्यमिक विद्यालय",
+      "Parent enquiries": "अभिभावक पूछताछ", "Our School": "हमारा विद्यालय", "Learning": "शिक्षा", "Facilities": "सुविधाएँ", "Disclosures": "महत्वपूर्ण दस्तावेज़", "Gallery": "गैलरी", "Enquire now": "अभी पूछताछ करें", "Public disclosures": "सार्वजनिक जानकारी",
+      "A school website designed around what families need to know.": "परिवारों की ज़रूरतों को ध्यान में रखकर बनाई गई विद्यालय की वेबसाइट।",
+      "A school community in Kurud, Bhilai": "कुरुद, भिलाई का एक विद्यालय समुदाय", "Learn with purpose. Grow with confidence.": "उद्देश्य के साथ सीखें। आत्मविश्वास के साथ आगे बढ़ें।", "Every learner deserves a place to": "हर विद्यार्थी को ऐसा स्थान मिलना चाहिए जहाँ वह", "flourish.": "निखर सके।",
+      "School details and admissions information should be confirmed by the school before publication.": "प्रकाशित करने से पहले विद्यालय के विवरण और प्रवेश संबंधी जानकारी की पुष्टि आवश्यक है।",
+      "A clear path for parents": "अभिभावकों के लिए आसान राह", "School information, facilities and enquiry options in one place.": "विद्यालय की जानकारी, सुविधाएँ और पूछताछ के विकल्प एक ही जगह।",
+      "Location": "स्थान", "School information": "विद्यालय की जानकारी", "Academics and facilities": "शिक्षा और सुविधाएँ", "For families": "परिवारों के लिए", "Admissions and enquiries": "प्रवेश और पूछताछ",
+      "Use this space to share the school's story, educational approach and community priorities in the school's own approved words.": "इस स्थान पर विद्यालय की कहानी, शिक्षण दृष्टिकोण और समुदाय से जुड़ी प्राथमिकताएँ विद्यालय द्वारा स्वीकृत शब्दों में साझा करें।",
+      "The Nalanda experience": "नालंदा का अनुभव", "Learning, belonging, becoming.": "सीखना, जुड़ना और आगे बढ़ना।", "Explore the school": "विद्यालय को जानें", "The information that matters, made easier to find.": "ज़रूरी जानकारी अब आसानी से उपलब्ध।",
+      "A clearer way to explore the school's learning offer and practical information. Confirm class-wise details with the school before launch.": "विद्यालय की शैक्षणिक जानकारी और ज़रूरी विवरण जानने का अधिक स्पष्ट तरीका। वेबसाइट शुरू करने से पहले कक्षा-वार जानकारी की पुष्टि करें।",
+      "Courses & academics": "पाठ्यक्रम और शिक्षा", "Help families understand the classes and academic pathways offered by the school.": "परिवारों को विद्यालय में उपलब्ध कक्षाओं और शैक्षणिक विकल्पों की जानकारी दें।", "Ask about classes": "कक्षाओं के बारे में पूछें", "Explore the facilities and learning spaces that support the school experience.": "विद्यालय के अनुभव को बेहतर बनाने वाली सुविधाओं और सीखने के स्थानों को जानें।", "View facilities": "सुविधाएँ देखें", "Give parents a simple route to ask questions and understand the admission process.": "अभिभावकों को प्रश्न पूछने और प्रवेश प्रक्रिया समझने का आसान तरीका दें।", "Start an enquiry": "पूछताछ शुरू करें",
+      "The school environment": "विद्यालय का वातावरण", "Spaces that support the school day.": "विद्यालय के हर दिन को बेहतर बनाने वाले स्थान।", "The current site highlights facilities and school information. Replace these illustrative images with approved photographs of Nalanda's actual campus and facilities.": "मौजूदा वेबसाइट पर सुविधाओं और विद्यालय की जानकारी को प्रमुखता दी गई है। इन उदाहरणात्मक तस्वीरों की जगह नालंदा परिसर और सुविधाओं की स्वीकृत तस्वीरें लगाएँ।",
+      "Campus": "परिसर", "School spaces": "विद्यालय के स्थान", "Replace with verified campus details.": "पुष्टि किए गए परिसर विवरण जोड़ें।", "Classroom experience": "कक्षा का अनुभव", "Add approved information about teaching and learning.": "शिक्षण और सीखने की स्वीकृत जानकारी जोड़ें।", "Community": "समुदाय", "Student life": "विद्यार्थी जीवन", "Use real school activities and approved photographs.": "विद्यालय की वास्तविक गतिविधियाँ और स्वीकृत तस्वीरें उपयोग करें।",
+      "Explore": "जानें", "Understand": "समझें", "Ask": "पूछें", "Connect": "जुड़ें", "Learn about the school.": "विद्यालय के बारे में जानें।", "Review relevant details.": "ज़रूरी विवरण देखें।", "Send your question.": "अपना प्रश्न भेजें।", "Follow up with the school.": "विद्यालय से आगे संपर्क करें।",
+      "Information & transparency": "जानकारी और पारदर्शिता", "Important documents, clearly organized.": "महत्वपूर्ण दस्तावेज़, व्यवस्थित रूप में।", "The existing site includes a public disclosure area. In the final build, this section should link to the school's current, approved documents.": "मौजूदा वेबसाइट पर सार्वजनिक जानकारी का अनुभाग है। अंतिम वेबसाइट में यहाँ विद्यालय के वर्तमान और स्वीकृत दस्तावेज़ों के लिंक होने चाहिए।", "Mandatory public disclosure": "अनिवार्य सार्वजनिक जानकारी", "Add the school's current disclosure documents and verified links.": "विद्यालय के वर्तमान सार्वजनिक दस्तावेज़ और सत्यापित लिंक जोड़ें।", "Document links to be verified": "दस्तावेज़ लिंक की पुष्टि बाकी", "Provide approved school details and relevant official information.": "विद्यालय के स्वीकृत विवरण और संबंधित आधिकारिक जानकारी दें।", "Content to be verified": "जानकारी की पुष्टि बाकी", "Downloads & resources": "डाउनलोड और संसाधन", "Make current calendars, policies and forms easy to locate.": "वर्तमान कैलेंडर, नीतियाँ और फ़ॉर्म आसानी से उपलब्ध कराएँ।", "Files to be supplied": "फ़ाइलें उपलब्ध करानी हैं",
+      "A glimpse of school life": "विद्यालय जीवन की एक झलक", "Moments that make a community.": "वे पल जो समुदाय बनाते हैं।", "Demo imagery only. Replace with approved photographs from the school's own gallery.": "केवल उदाहरणात्मक तस्वीरें। इन्हें विद्यालय की गैलरी की स्वीकृत तस्वीरों से बदलें।",
+      "Get in touch": "संपर्क करें", "Let's help you find the information you need.": "आपको ज़रूरी जानकारी पाने में मदद करें।", "For admission enquiries, school information or a visit, contact the school through its verified official channels. The details below should be replaced with the exact current information from the official website or school management before launch.": "प्रवेश संबंधी पूछताछ, विद्यालय की जानकारी या भ्रमण के लिए सत्यापित आधिकारिक माध्यमों से संपर्क करें। वेबसाइट शुरू करने से पहले नीचे दिए विवरणों को आधिकारिक वेबसाइट या विद्यालय प्रबंधन से मिली वर्तमान जानकारी से बदलें।",
+      "Address": "पता", "Confirm full postal address before launch.": "शुरू करने से पहले पूरा डाक पता सत्यापित करें।", "Phone & email": "फ़ोन और ईमेल", "Do not publish unverified numbers or email addresses.": "बिना पुष्टि किए फ़ोन नंबर या ईमेल प्रकाशित न करें।", "Send an enquiry": "पूछताछ भेजें", "Demo form only. It does not send or store information.": "यह केवल डेमो फ़ॉर्म है। यह जानकारी भेजता या सहेजता नहीं है।", "Parent / guardian name": "माता-पिता / अभिभावक का नाम", "Your name": "आपका नाम", "Phone number": "फ़ोन नंबर", "Your contact number": "आपका संपर्क नंबर", "What would you like to know?": "आप क्या जानना चाहते हैं?", "Admission enquiry": "प्रवेश संबंधी पूछताछ", "Classes and academics": "कक्षाएँ और शिक्षा", "Other question": "अन्य प्रश्न", "Message": "संदेश", "(optional)": "(वैकल्पिक)", "How can the school help?": "विद्यालय आपकी कैसे मदद कर सकता है?", "Preview enquiry submission": "पूछताछ भेजने का पूर्वावलोकन", "Before launch, connect this form to an approved, secure form handler and publish a privacy notice. Avoid collecting more student or family information than necessary.": "शुरू करने से पहले इस फ़ॉर्म को स्वीकृत और सुरक्षित सिस्टम से जोड़ें और गोपनीयता सूचना प्रकाशित करें। आवश्यकता से अधिक विद्यार्थी या परिवार की जानकारी न लें।",
+      "Information": "जानकारी", "A refreshed digital concept for sharing school information, supporting parent enquiries and making key resources easier to find.": "विद्यालय की जानकारी साझा करने, अभिभावकों की पूछताछ में मदद करने और ज़रूरी संसाधन आसानी से उपलब्ध कराने की नई डिजिटल अवधारणा।", "Our school": "हमारा विद्यालय", "Public disclosure": "सार्वजनिक जानकारी", "Contact": "संपर्क", "Admissions enquiry": "प्रवेश संबंधी पूछताछ", "Demo concept.": "डेमो अवधारणा।", "Nalanda English Medium Higher Secondary School. Demo concept.": "नालंदा इंग्लिश मीडियम हायर सेकेंडरी स्कूल। डेमो अवधारणा।", "Demo imagery and placeholder contact details must be verified before publication.": "प्रकाशित करने से पहले उदाहरणात्मक तस्वीरों और अस्थायी संपर्क विवरणों की पुष्टि करें।",
+      "Illustrative classroom scene": "कक्षा का उदाहरणात्मक दृश्य", "Illustrative student learning": "पढ़ते हुए विद्यार्थी की उदाहरणात्मक तस्वीर", "Illustrative classroom activity": "कक्षा की गतिविधि की उदाहरणात्मक तस्वीर", "Illustrative teacher and students": "शिक्षक और विद्यार्थियों की उदाहरणात्मक तस्वीर", "Illustrative school exterior": "विद्यालय के बाहरी परिसर की उदाहरणात्मक तस्वीर", "Students learning together in a classroom": "कक्षा में साथ सीखते हुए विद्यार्थी", "Illustrative school building": "विद्यालय भवन की उदाहरणात्मक तस्वीर", "Illustrative classroom learning": "कक्षा में सीखने की उदाहरणात्मक तस्वीर", "Illustrative students participating in an activity": "गतिविधि में भाग लेते विद्यार्थियों की उदाहरणात्मक तस्वीर"
+    };
+    let currentLanguage = 'en';
+    const originalText = new WeakMap();
+    const originalAttrs = new WeakMap();
+    function applyLanguage(lang) {
+      currentLanguage = lang;
+      document.documentElement.lang = lang === 'hi' ? 'hi' : 'en';
+      document.title = lang === 'hi' ? 'नालंदा इंग्लिश मीडियम हायर सेकेंडरी स्कूल | कुरुद' : 'Nalanda English Medium Higher Secondary School | Kurud';
+      const metaDescription = document.querySelector('meta[name="description"]');
+      if (metaDescription) metaDescription.content = lang === 'hi' ? 'नालंदा इंग्लिश मीडियम हायर सेकेंडरी स्कूल, कुरुद की जानकारी, सुविधाएँ, प्रवेश और अभिभावकों के लिए संसाधन देखें।' : 'Explore Nalanda English Medium Higher Secondary School, Kurud. Discover school information, facilities, admissions and parent resources.';
+      document.querySelectorAll('body *').forEach(el => {
+        if (el.closest('#languageGate')) return;
+        [...el.childNodes].forEach(node => {
+          if (node.nodeType === Node.TEXT_NODE) {
+            if (!originalText.has(node)) originalText.set(node, node.nodeValue);
+            const raw = originalText.get(node), trimmed = raw.trim();
+            if (lang === 'hi' && translations[trimmed]) node.nodeValue = raw.replace(trimmed, translations[trimmed]);
+            else node.nodeValue = raw;
+          }
+        });
+        ['placeholder','aria-label','alt'].forEach(attr => {
+          if (!el.hasAttribute(attr)) return;
+          if (!originalAttrs.has(el)) originalAttrs.set(el, {});
+          const saved = originalAttrs.get(el);
+          if (!(attr in saved)) saved[attr] = el.getAttribute(attr);
+          const val = saved[attr];
+          if (lang === 'hi') {
+            const mapped = translations[val];
+            if (mapped) el.setAttribute(attr, mapped);
+            else if (attr === 'alt' && val.startsWith('Illustrative')) el.setAttribute(attr, 'उदाहरणात्मक तस्वीर');
+          } else el.setAttribute(attr, val);
+        });
+      });
+      document.querySelectorAll('#interest option').forEach(opt => {
+        const val = opt.textContent.trim();
+        if (!opt.dataset.en) opt.dataset.en = val;
+        opt.textContent = lang === 'hi' ? (translations[opt.dataset.en] || opt.dataset.en) : opt.dataset.en;
+      });
+      document.getElementById('languageToggle').textContent = lang === 'hi' ? 'अंग्रेज़ी' : 'हिन्दी';
+      document.getElementById('languageToggle').setAttribute('aria-label', lang === 'hi' ? 'वेबसाइट की भाषा अंग्रेज़ी में बदलें' : 'Switch website language');
+      const menuControl = document.getElementById('menuBtn');
+      if (menuControl) menuControl.setAttribute('aria-label', lang === 'hi' ? (menuControl.getAttribute('aria-expanded') === 'true' ? 'नेविगेशन मेनू बंद करें' : 'नेविगेशन मेनू खोलें') : (menuControl.getAttribute('aria-expanded') === 'true' ? 'Close navigation menu' : 'Open navigation menu'));
+      const notice = document.getElementById('formNotice');
+      if (!notice.classList.contains('hidden')) notice.textContent = lang === 'hi' ? 'यह केवल डेमो है: कोई जानकारी भेजी या सहेजी नहीं गई है। वास्तविक वेबसाइट पर इसे विद्यालय की स्वीकृत पूछताछ प्रणाली से जोड़ना होगा।' : 'Demo only: no details have been sent or saved. A production version should connect this form to the school’s approved enquiry system.';
+    }
+    function enterSite(lang) {
+      applyLanguage(lang);
+      document.getElementById('languageGate').classList.add('hidden');
+    }
+    document.getElementById('chooseEnglish').addEventListener('click', () => enterSite('en'));
+    document.getElementById('chooseHindi').addEventListener('click', () => enterSite('hi'));
+    document.getElementById('languageToggle').addEventListener('click', () => {
+      applyLanguage(currentLanguage === 'en' ? 'hi' : 'en');
+      const toggleLabel = document.getElementById('languageToggleLabel');
+      if (toggleLabel) toggleLabel.textContent = currentLanguage === 'hi' ? 'English' : 'हिन्दी';
+    });
+    const mobileLanguageToggle = document.getElementById('mobileLanguageToggle');
+    if (mobileLanguageToggle) mobileLanguageToggle.addEventListener('click', () => {
+      applyLanguage(currentLanguage === 'en' ? 'hi' : 'en');
+      mobileLanguageToggle.textContent = currentLanguage === 'hi' ? 'अंग्रेज़ी में बदलें' : 'हिन्दी में बदलें';
+    });
+
+
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', () => {
+      const isOpen = menuBtn.getAttribute('aria-expanded') === 'true';
+      menuBtn.setAttribute('aria-expanded', String(!isOpen));
+      menuBtn.setAttribute('aria-label', currentLanguage === 'hi' ? (isOpen ? 'नेविगेशन मेनू खोलें' : 'नेविगेशन मेनू बंद करें') : (isOpen ? 'Open navigation menu' : 'Close navigation menu'));
+      mobileMenu.classList.toggle('hidden', isOpen);
+    });
+    mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      menuBtn.setAttribute('aria-expanded','false');
+      menuBtn.setAttribute('aria-label', currentLanguage === 'hi' ? 'नेविगेशन मेनू खोलें' : 'Open navigation menu');
+    }));
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const form = document.getElementById('enquiryForm');
+    const notice = document.getElementById('formNotice');
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      notice.textContent = currentLanguage === 'hi' ? 'यह केवल डेमो है: कोई जानकारी भेजी या सहेजी नहीं गई है। वास्तविक वेबसाइट पर इसे विद्यालय की स्वीकृत पूछताछ प्रणाली से जोड़ना होगा।' : 'Demo only: no details have been sent or saved. A production version should connect this form to the school’s approved enquiry system.';
+      notice.classList.remove('hidden');
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
